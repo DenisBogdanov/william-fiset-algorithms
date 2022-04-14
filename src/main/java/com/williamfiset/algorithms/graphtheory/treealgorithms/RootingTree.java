@@ -9,31 +9,49 @@
 package com.williamfiset.algorithms.graphtheory.treealgorithms;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
 public class RootingTree {
 
-  public static class TreeNode {
-    private int id;
-    private TreeNode parent;
-    private List<TreeNode> children;
+  public static TreeNode rootTree(List<List<Integer>> graph, int rootId) {
+    TreeNode root = new TreeNode(rootId);
+    return buildTree(graph, root);
+  }
 
-    // Useful constructor for root node.
-    public TreeNode(int id) {
-      this(id, /*parent=*/ null);
+  private static TreeNode buildTree(List<List<Integer>> graph, TreeNode node) {
+    for (int childId : graph.get(node.id())) {
+      // ignore adding an edge pointing back to parent.
+      if (node.parent() != null && childId == node.parent().id()) {
+        continue;
+      }
+
+      TreeNode child = new TreeNode(childId, node);
+      node.addChildren(child);
+
+      buildTree(graph, child);
     }
+    return node;
+  }
 
-    public TreeNode(int id, TreeNode parent) {
+  public static class TreeNode {
+    private final int id;
+    private TreeNode parent;
+    private final List<TreeNode> children;
+
+    public TreeNode(int id) {
       this.id = id;
-      this.parent = parent;
       children = new LinkedList<>();
     }
 
+    public TreeNode(int id, TreeNode parent) {
+      this(id);
+      this.parent = parent;
+    }
+
     public void addChildren(TreeNode... nodes) {
-      for (TreeNode node : nodes) {
-        children.add(node);
-      }
+      Collections.addAll(children, nodes);
     }
 
     public int id() {
@@ -61,27 +79,6 @@ public class RootingTree {
       }
       return false;
     }
-  }
-
-  public static TreeNode rootTree(List<List<Integer>> graph, int rootId) {
-    TreeNode root = new TreeNode(rootId);
-    return buildTree(graph, root);
-  }
-
-  // Do dfs to construct rooted tree.
-  private static TreeNode buildTree(List<List<Integer>> graph, TreeNode node) {
-    for (int childId : graph.get(node.id())) {
-      // Ignore adding an edge pointing back to parent.
-      if (node.parent() != null && childId == node.parent().id()) {
-        continue;
-      }
-
-      TreeNode child = new TreeNode(childId, node);
-      node.addChildren(child);
-
-      buildTree(graph, child);
-    }
-    return node;
   }
 
   /**
