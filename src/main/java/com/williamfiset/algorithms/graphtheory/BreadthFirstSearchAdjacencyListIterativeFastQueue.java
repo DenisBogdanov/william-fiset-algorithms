@@ -156,7 +156,7 @@ public class BreadthFirstSearchAdjacencyListIterativeFastQueue {
     if (nodeCount != 100) System.err.println("Error with BFS");
   }
 
-  // Helper method to setup graph
+
   private static void addDirectedEdge(Map<Integer, List<Edge>> graph, int from, int to, int cost) {
     List<Edge> list = graph.get(from);
     if (list == null) {

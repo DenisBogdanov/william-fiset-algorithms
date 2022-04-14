@@ -23,30 +23,22 @@ public class DepthFirstSearchAdjacencyListIterative {
     }
   }
 
-  // Perform a depth first search on a graph with n nodes
-  // from a starting point to count the number of nodes
-  // in a given component.
-  static int dfs(Map<Integer, List<Edge>> graph, int start, int n) {
-
+  static int dfs(Map<Integer, List<Edge>> graph, int start, int nodesSize) {
     int count = 0;
-    boolean[] visited = new boolean[n];
+    boolean[] visited = new boolean[nodesSize];
     Stack<Integer> stack = new Stack<>();
 
-    // Start by visiting the starting node
     stack.push(start);
     visited[start] = true;
 
     while (!stack.isEmpty()) {
       int node = stack.pop();
       count++;
-      List<Edge> edges = graph.get(node);
 
-      if (edges != null) {
-        for (Edge edge : edges) {
-          if (!visited[edge.to]) {
-            stack.push(edge.to);
-            visited[edge.to] = true;
-          }
+      for (Edge edge : graph.getOrDefault(node, List.of())) {
+        if (!visited[edge.to]) {
+          stack.push(edge.to);
+          visited[edge.to] = true;
         }
       }
     }
@@ -54,7 +46,6 @@ public class DepthFirstSearchAdjacencyListIterative {
     return count;
   }
 
-  // Example usage of DFS
   public static void main(String[] args) {
 
     // Create a fully connected graph
@@ -87,13 +78,8 @@ public class DepthFirstSearchAdjacencyListIterative {
     if (nodeCount != 1) System.err.println("Error with DFS");
   }
 
-  // Helper method to setup graph
   private static void addDirectedEdge(Map<Integer, List<Edge>> graph, int from, int to, int cost) {
-    List<Edge> list = graph.get(from);
-    if (list == null) {
-      list = new ArrayList<Edge>();
-      graph.put(from, list);
-    }
+    List<Edge> list = graph.computeIfAbsent(from, k -> new ArrayList<Edge>());
     list.add(new Edge(from, to, cost));
   }
 }

@@ -83,7 +83,7 @@ public class BreadthFirstSearchRecursive {
     System.out.printf("BFS depth: %d\n", bfs(graph, 12, n));
   }
 
-  // Helper method to setup graph
+
   private static void addUndirectedEdge(List<List<Integer>> graph, int from, int to) {
     graph.get(from).add(to);
     graph.get(to).add(from);

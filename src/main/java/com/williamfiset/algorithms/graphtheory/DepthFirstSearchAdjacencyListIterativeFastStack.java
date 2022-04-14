@@ -11,58 +11,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-// This file contains an implementation of an integer only stack which is
-// extremely quick and lightweight. In terms of performance it can outperform
-// java.util.ArrayDeque (Java's fastest stack implementation) by a factor of 50!
-// However, the downside is you need to know an upper bound on the number of
-// elements that will be inside the stack at any given time for it to work correctly.
-class IntStack {
-
-  private int[] ar;
-  private int pos = 0, sz;
-
-  // max_sz is the maximum number of items
-  // that can be in the queue at any given time
-  public IntStack(int max_sz) {
-    ar = new int[(sz = max_sz)];
-  }
-
-  public boolean isEmpty() {
-    return pos == 0;
-  }
-
-  // Returns the element at the top of the stack
-  public int peek() {
-    return ar[pos - 1];
-  }
-
-  // Add an element to the top of the stack
-  public void push(int value) {
-    ar[pos++] = value;
-  }
-
-  // Make sure you check that the stack is not empty before calling pop!
-  public int pop() {
-    return ar[--pos];
-  }
-}
-
 public class DepthFirstSearchAdjacencyListIterativeFastStack {
-
-  static class Edge {
-    int from, to, cost;
-
-    public Edge(int from, int to, int cost) {
-      this.from = from;
-      this.to = to;
-      this.cost = cost;
-    }
-  }
 
   // Perform a depth first search on a graph with n nodes
   // from a starting point to count the number of nodes
   // in a given component.
-  static int dfs(Map<Integer, List<Edge>> graph, int start, int n) {
+  public static int dfs(Map<Integer, List<Edge>> graph, int start, int n) {
 
     int count = 0;
     boolean[] visited = new boolean[n];
@@ -90,6 +44,41 @@ public class DepthFirstSearchAdjacencyListIterativeFastStack {
     }
 
     return count;
+  }
+
+  private static class IntStack {
+    private final int[] storage;
+    private int size = 0;
+
+    public IntStack(int maxSize) {
+      storage = new int[maxSize];
+    }
+
+    public boolean isEmpty() {
+      return size == 0;
+    }
+
+    public int peek() {
+      return storage[size - 1];
+    }
+
+    public void push(int value) {
+      storage[size++] = value;
+    }
+
+    public int pop() {
+      return storage[--size];
+    }
+  }
+
+  private static class Edge {
+    int from, to, cost;
+
+    public Edge(int from, int to, int cost) {
+      this.from = from;
+      this.to = to;
+      this.cost = cost;
+    }
   }
 
   // Example usage of DFS
@@ -125,13 +114,8 @@ public class DepthFirstSearchAdjacencyListIterativeFastStack {
     if (nodeCount != 1) System.err.println("Error with DFS");
   }
 
-  // Helper method to setup graph
   private static void addDirectedEdge(Map<Integer, List<Edge>> graph, int from, int to, int cost) {
-    List<Edge> list = graph.get(from);
-    if (list == null) {
-      list = new ArrayList<Edge>();
-      graph.put(from, list);
-    }
+    List<Edge> list = graph.computeIfAbsent(from, k -> new ArrayList<Edge>());
     list.add(new Edge(from, to, cost));
   }
 }

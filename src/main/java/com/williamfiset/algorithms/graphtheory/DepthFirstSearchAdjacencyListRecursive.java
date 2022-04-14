@@ -12,36 +12,29 @@ import java.util.Map;
 
 public class DepthFirstSearchAdjacencyListRecursive {
 
-  static class Edge {
-    int from, to, cost;
+  public static long dfs(int node, boolean[] visited, Map<Integer, List<Edge>> graph) {
+    if (visited[node]) return 0L;
+
+    visited[node] = true;
+    long count = 1;
+
+    for (Edge edge : graph.getOrDefault(node, List.of())) {
+      count += dfs(edge.to, visited, graph);
+    }
+
+    return count;
+  }
+
+  private static class Edge {
+    final int from;
+    final int to;
+    final int cost;
 
     public Edge(int from, int to, int cost) {
       this.from = from;
       this.to = to;
       this.cost = cost;
     }
-  }
-
-  // Perform a depth first search on the graph counting
-  // the number of nodes traversed starting at some position
-  static long dfs(int at, boolean[] visited, Map<Integer, List<Edge>> graph) {
-
-    // We have already visited this node
-    if (visited[at]) return 0L;
-
-    // Visit this node
-    visited[at] = true;
-    long count = 1;
-
-    // Visit all edges adjacent to where we're at
-    List<Edge> edges = graph.get(at);
-    if (edges != null) {
-      for (Edge edge : edges) {
-        count += dfs(edge.to, visited, graph);
-      }
-    }
-
-    return count;
   }
 
   // Example usage of DFS
@@ -77,13 +70,8 @@ public class DepthFirstSearchAdjacencyListRecursive {
     if (nodeCount != 1) System.err.println("Error with DFS");
   }
 
-  // Helper method to setup graph
   private static void addDirectedEdge(Map<Integer, List<Edge>> graph, int from, int to, int cost) {
-    List<Edge> list = graph.get(from);
-    if (list == null) {
-      list = new ArrayList<Edge>();
-      graph.put(from, list);
-    }
+    List<Edge> list = graph.computeIfAbsent(from, k -> new ArrayList<>());
     list.add(new Edge(from, to, cost));
   }
 }
