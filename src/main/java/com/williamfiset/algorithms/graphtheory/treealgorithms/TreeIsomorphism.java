@@ -15,10 +15,33 @@ import java.util.List;
 
 public class TreeIsomorphism {
 
+  public static boolean treesAreIsomorphic(List<List<Integer>> tree1, List<List<Integer>> tree2) {
+    if (tree1.isEmpty() || tree2.isEmpty()) {
+      throw new IllegalArgumentException("Empty tree input");
+    }
+
+    List<Integer> centers1 = findTreeCenters(tree1);
+    List<Integer> centers2 = findTreeCenters(tree2);
+
+    TreeNode rootedTree1 = rootTree(tree1, centers1.get(0));
+    String tree1Encoding = encode(rootedTree1);
+
+    for (int center : centers2) {
+      TreeNode rootedTree2 = rootTree(tree2, center);
+      String tree2Encoding = encode(rootedTree2);
+
+      if (tree1Encoding.equals(tree2Encoding)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
   public static class TreeNode {
-    private int id;
-    private TreeNode parent;
-    private List<TreeNode> children;
+    private final int id;
+    private final TreeNode parent;
+    private final List<TreeNode> children;
 
     // Useful constructor for root node.
     public TreeNode(int id) {
@@ -32,9 +55,7 @@ public class TreeIsomorphism {
     }
 
     public void addChildren(TreeNode... nodes) {
-      for (TreeNode node : nodes) {
-        children.add(node);
-      }
+      Collections.addAll(children, nodes);
     }
 
     public int id() {
@@ -55,28 +76,6 @@ public class TreeIsomorphism {
     }
   }
 
-  // Determines if two unrooted trees are isomorphic
-  public static boolean treesAreIsomorphic(List<List<Integer>> tree1, List<List<Integer>> tree2) {
-    if (tree1.isEmpty() || tree2.isEmpty()) {
-      throw new IllegalArgumentException("Empty tree input");
-    }
-
-    List<Integer> centers1 = findTreeCenters(tree1);
-    List<Integer> centers2 = findTreeCenters(tree2);
-
-    TreeNode rootedTree1 = rootTree(tree1, centers1.get(0));
-    String tree1Encoding = encode(rootedTree1);
-
-    for (int center : centers2) {
-      TreeNode rootedTree2 = rootTree(tree2, center);
-      String tree2Encoding = encode(rootedTree2);
-
-      if (tree1Encoding.equals(tree2Encoding)) {
-        return true;
-      }
-    }
-    return false;
-  }
 
   private static List<Integer> findTreeCenters(List<List<Integer>> tree) {
     int n = tree.size();
@@ -135,21 +134,19 @@ public class TreeIsomorphism {
     return node;
   }
 
-  // Constructs the canonical form representation of a tree as a string.
-  public static String encode(TreeNode node) {
+  private static String encode(TreeNode node) {
     if (node == null) {
       return "";
     }
+
     List<String> labels = new LinkedList<>();
     for (TreeNode child : node.children()) {
       labels.add(encode(child));
     }
+
     Collections.sort(labels);
-    StringBuilder sb = new StringBuilder();
-    for (String label : labels) {
-      sb.append(label);
-    }
-    return "(" + sb.toString() + ")";
+
+    return "(" + String.join("", labels) + ")";
   }
 
   /* Graph/Tree creation helper methods. */
