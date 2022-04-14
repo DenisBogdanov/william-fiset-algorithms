@@ -12,26 +12,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BreadthFirstSearchAdjacencyListIterative {
-
-  public static class Edge {
-    int from, to, cost;
-
-    public Edge(int from, int to, int cost) {
-      this.from = from;
-      this.to = to;
-      this.cost = cost;
-    }
-  }
-
-  private int n;
+  private final int size;
   private Integer[] prev;
-  private List<List<Edge>> graph;
+  private final List<List<Edge>> graph;
 
   public BreadthFirstSearchAdjacencyListIterative(List<List<Edge>> graph) {
     if (graph == null) throw new IllegalArgumentException("Graph can not be null");
-    n = graph.size();
+    size = graph.size();
     this.graph = graph;
   }
 
@@ -54,9 +44,9 @@ public class BreadthFirstSearchAdjacencyListIterative {
 
   // Perform a breadth first search on a graph a starting node 'start'.
   private void bfs(int start) {
-    prev = new Integer[n];
-    boolean[] visited = new boolean[n];
-    Deque<Integer> queue = new ArrayDeque<>(n);
+    prev = new Integer[size];
+    boolean[] visited = new boolean[size];
+    Deque<Integer> queue = new ArrayDeque<>(size);
 
     // Start by visiting the 'start' node and add it to the queue.
     queue.offer(start);
@@ -103,6 +93,16 @@ public class BreadthFirstSearchAdjacencyListIterative {
     addUndirectedEdge(graph, u, v, 1);
   }
 
+  static class Edge {
+    int from, to, cost;
+
+    public Edge(int from, int to, int cost) {
+      this.from = from;
+      this.to = to;
+      this.cost = cost;
+    }
+  }
+
   /* BFS example. */
 
   public static void main(String[] args) {
@@ -138,7 +138,6 @@ public class BreadthFirstSearchAdjacencyListIterative {
   }
 
   private static String formatPath(List<Integer> path) {
-    return String.join(
-        " -> ", path.stream().map(Object::toString).collect(java.util.stream.Collectors.toList()));
+    return path.stream().map(Object::toString).collect(Collectors.joining(" -> "));
   }
 }
