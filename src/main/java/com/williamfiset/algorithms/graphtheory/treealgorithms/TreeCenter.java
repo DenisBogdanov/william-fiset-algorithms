@@ -15,39 +15,37 @@ import java.util.List;
 public class TreeCenter {
 
   public static List<Integer> findTreeCenters(List<List<Integer>> tree) {
-    final int n = tree.size();
-    int[] degree = new int[n];
+    final int size = tree.size();
+    int[] degrees = new int[size];
 
-    // Find all leaf nodes
-    List<Integer> leaves = new ArrayList<>();
-    for (int i = 0; i < n; i++) {
+    List<Integer> leafNodes = new ArrayList<>();
+    for (int i = 0; i < size; i++) {
       List<Integer> edges = tree.get(i);
-      degree[i] = edges.size();
-      if (degree[i] <= 1) {
-        leaves.add(i);
-        degree[i] = 0;
+      degrees[i] = edges.size();
+      if (degrees[i] <= 1) {
+        leafNodes.add(i);
+        degrees[i] = 0;
       }
     }
 
-    int processedLeafs = leaves.size();
+    int processedLeafs = leafNodes.size();
 
-    // Remove leaf nodes and decrease the degree of each node adding new leaf nodes progressively
-    // until only the centers remain.
-    while (processedLeafs < n) {
+    while (processedLeafs < size) {
       List<Integer> newLeaves = new ArrayList<>();
-      for (int node : leaves) {
+      for (int node : leafNodes) {
         for (int neighbor : tree.get(node)) {
-          if (--degree[neighbor] == 1) {
+          if (--degrees[neighbor] == 1) {
             newLeaves.add(neighbor);
           }
         }
-        degree[node] = 0;
+        degrees[node] = 0;
       }
+
       processedLeafs += newLeaves.size();
-      leaves = newLeaves;
+      leafNodes = newLeaves;
     }
 
-    return leaves;
+    return leafNodes;
   }
 
   /**
