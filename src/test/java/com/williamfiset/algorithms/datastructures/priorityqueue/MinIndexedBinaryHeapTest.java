@@ -1,6 +1,7 @@
 package com.williamfiset.algorithms.datastructures.priorityqueue;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,12 +10,14 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Random;
-import org.junit.*;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class MinIndexedBinaryHeapTest {
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test(expected = IllegalArgumentException.class)
   public void testIllegalSizeOfNegativeOne() {
@@ -97,16 +100,16 @@ public class MinIndexedBinaryHeapTest {
     // pairs[i][0] is the index
     // pairs[i][1] is the value
     Integer[][] pairs = {
-      {4, 1},
-      {7, 5},
-      {1, 6},
-      {5, 8},
-      {3, 7},
-      {6, 9},
-      {8, 0},
-      {2, 4},
-      {9, 3},
-      {0, 2}
+        {4, 1},
+        {7, 5},
+        {1, 6},
+        {5, 8},
+        {3, 7},
+        {6, 9},
+        {8, 0},
+        {2, 4},
+        {9, 3},
+        {0, 2}
     };
     sortPairsByValue(pairs);
 
@@ -128,16 +131,16 @@ public class MinIndexedBinaryHeapTest {
     // pairs[i][0] is the index
     // pairs[i][1] is the value
     Integer[][] pairs = {
-      {4, 1},
-      {7, 5},
-      {1, 6},
-      {5, 8},
-      {3, 7},
-      {6, 9},
-      {8, 0},
-      {2, 4},
-      {9, 3},
-      {0, 2}
+        {4, 1},
+        {7, 5},
+        {1, 6},
+        {5, 8},
+        {3, 7},
+        {6, 9},
+        {8, 0},
+        {2, 4},
+        {9, 3},
+        {0, 2}
     };
     sortPairsByValue(pairs);
 

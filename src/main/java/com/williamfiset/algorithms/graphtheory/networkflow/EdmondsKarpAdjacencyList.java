@@ -9,9 +9,10 @@
  */
 package com.williamfiset.algorithms.graphtheory.networkflow;
 
-import static java.lang.Math.min;
+import java.util.ArrayDeque;
+import java.util.Queue;
 
-import java.util.*;
+import static java.lang.Math.min;
 
 public class EdmondsKarpAdjacencyList extends NetworkFlowSolverBase {
 

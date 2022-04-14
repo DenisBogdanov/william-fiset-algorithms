@@ -1,12 +1,14 @@
 package com.williamfiset.algorithms.datastructures.priorityqueue;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
-import org.junit.*;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class BinaryHeapTest {
 
@@ -14,7 +16,8 @@ public class BinaryHeapTest {
   static final int MAX_SZ = 100;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testEmpty() {
@@ -142,27 +145,27 @@ public class BinaryHeapTest {
     Integer[] removeOrder = {1, 3, 6, 4, 5, 7, 2};
     sequentialRemoving(in, removeOrder);
 
-    in = new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
-    removeOrder = new Integer[] {7, 4, 6, 10, 2, 5, 11, 3, 1, 8, 9};
+    in = new Integer[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+    removeOrder = new Integer[]{7, 4, 6, 10, 2, 5, 11, 3, 1, 8, 9};
     sequentialRemoving(in, removeOrder);
 
-    in = new Integer[] {8, 1, 3, 3, 5, 3};
-    removeOrder = new Integer[] {3, 3, 5, 8, 1, 3};
+    in = new Integer[]{8, 1, 3, 3, 5, 3};
+    removeOrder = new Integer[]{3, 3, 5, 8, 1, 3};
     sequentialRemoving(in, removeOrder);
 
-    in = new Integer[] {7, 7, 3, 1, 1, 2};
-    removeOrder = new Integer[] {2, 7, 1, 3, 7, 1};
+    in = new Integer[]{7, 7, 3, 1, 1, 2};
+    removeOrder = new Integer[]{2, 7, 1, 3, 7, 1};
     sequentialRemoving(in, removeOrder);
 
-    in = new Integer[] {32, 66, 93, 42, 41, 91, 54, 64, 9, 35};
-    removeOrder = new Integer[] {64, 93, 54, 41, 35, 9, 66, 42, 32, 91};
+    in = new Integer[]{32, 66, 93, 42, 41, 91, 54, 64, 9, 35};
+    removeOrder = new Integer[]{64, 93, 54, 41, 35, 9, 66, 42, 32, 91};
     sequentialRemoving(in, removeOrder);
   }
 
   @Test
   public void testRemovingDuplicates() {
 
-    Integer[] in = new Integer[] {2, 7, 2, 11, 7, 13, 2};
+    Integer[] in = new Integer[]{2, 7, 2, 11, 7, 13, 2};
     BinaryHeap<Integer> pq = new BinaryHeap<>(in);
 
     assertThat(pq.peek()).isEqualTo(2);

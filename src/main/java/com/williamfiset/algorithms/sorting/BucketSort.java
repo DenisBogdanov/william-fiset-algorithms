@@ -9,7 +9,9 @@
  */
 package com.williamfiset.algorithms.sorting;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class BucketSort implements InplaceSort {
 
@@ -63,7 +65,7 @@ public class BucketSort implements InplaceSort {
     // [2, 3, 4, 6, 8, 10, 13]
     System.out.println(java.util.Arrays.toString(array));
 
-    array = new int[] {10, 10, 10, 10, 10};
+    array = new int[]{10, 10, 10, 10, 10};
     sorter.sort(array);
     // Prints:
     // [10, 10, 10, 10, 10]

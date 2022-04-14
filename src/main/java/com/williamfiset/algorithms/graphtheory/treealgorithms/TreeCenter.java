@@ -50,7 +50,9 @@ public class TreeCenter {
     return leaves;
   }
 
-  /** ********** TESTING ********* */
+  /**
+   * ********* TESTING *********
+   */
 
   // Create an empty tree as a adjacency list.
   public static List<List<Integer>> createEmptyTree(int n) {

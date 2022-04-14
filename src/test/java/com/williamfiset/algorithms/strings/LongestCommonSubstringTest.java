@@ -3,13 +3,20 @@
  */
 package com.williamfiset.algorithms.strings;
 
-import static com.google.common.truth.Truth.assertThat;
-import static com.williamfiset.algorithms.strings.LongestCommonSubstring.LcsSolver;
-
 import com.google.common.collect.ImmutableList;
 import com.williamfiset.algorithms.utils.TestUtils;
-import java.util.*;
-import org.junit.*;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+
+import static com.google.common.truth.Truth.assertThat;
+import static com.williamfiset.algorithms.strings.LongestCommonSubstring.LcsSolver;
 
 public class LongestCommonSubstringTest {
 
@@ -194,10 +201,10 @@ public class LongestCommonSubstringTest {
   public void simple4() {
     int k = 4;
     String[] strs = {
-      "XXXXXXX", "VVV",
-      "XXXXXXX", "ZZZ",
-      "XXXXXXX", "YYY",
-      "XXXXXXX"
+        "XXXXXXX", "VVV",
+        "XXXXXXX", "ZZZ",
+        "XXXXXXX", "YYY",
+        "XXXXXXX"
     };
 
     TreeSet<String> ans = new TreeSet<>();
@@ -225,7 +232,7 @@ public class LongestCommonSubstringTest {
   public void kValueTest() {
     int k = 5;
     String[] strs = {
-      "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
+        "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
     };
 
     // The 'A's are not included because we need four of them.
@@ -241,7 +248,7 @@ public class LongestCommonSubstringTest {
   public void kValueTest2() {
     int k = 4;
     String[] strs = {
-      "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
+        "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
     };
 
     // The 'A's are not included because we need four of them.
@@ -258,7 +265,7 @@ public class LongestCommonSubstringTest {
   public void kValueTest3() {
     int k = 3;
     String[] strs = {
-      "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
+        "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
     };
 
     // The 'A's are not included because we need four of them.
@@ -274,7 +281,7 @@ public class LongestCommonSubstringTest {
   public void kValueTest4() {
     int k = 2;
     String[] strs = {
-      "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
+        "AAAAA", "AAAAA", "AAAAA", "BB", "BB", "BB", "BB", "CC", "CC", "CC", "CC", "CC"
     };
 
     // The 'A's are not included because we need four of them.
@@ -290,9 +297,9 @@ public class LongestCommonSubstringTest {
   public void smallStrings() {
     int k = 6;
     String[] strs = {
-      "A", "A", "A", "A", "A", "A", "B", "B", "B", "B", "B", "B", "C", "C", "C", "C", "C", "C", "D",
-      "D", "D", "D", "D", "D", "E", "E", "E", "E", "E", "F", "F", "F", "F", "G", "G", "G", "H", "H",
-      "I"
+        "A", "A", "A", "A", "A", "A", "B", "B", "B", "B", "B", "B", "C", "C", "C", "C", "C", "C", "D",
+        "D", "D", "D", "D", "D", "E", "E", "E", "E", "E", "F", "F", "F", "F", "G", "G", "G", "H", "H",
+        "I"
     };
 
     TreeSet<String> ans = new TreeSet<>();

@@ -129,7 +129,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     // If the list is empty set the tail to null
     if (isEmpty()) tail = null;
 
-    // Do a memory cleanup of the previous node
+      // Do a memory cleanup of the previous node
     else head.prev = null;
 
     // Return the data that was at the first node we just removed
@@ -150,7 +150,7 @@ public class DoublyLinkedList<T> implements Iterable<T> {
     // If the list is now empty set the head to null
     if (isEmpty()) head = null;
 
-    // Do a memory clean of the node that was just removed
+      // Do a memory clean of the node that was just removed
     else tail.next = null;
 
     // Return the data that was in the last node we just removed

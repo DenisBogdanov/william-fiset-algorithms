@@ -1,10 +1,12 @@
 package com.williamfiset.algorithms.datastructures.suffixarray;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.security.SecureRandom;
 import java.util.Random;
-import org.junit.*;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class SuffixArrayTest {
 
@@ -19,7 +21,8 @@ public class SuffixArrayTest {
   String ASCII_LETTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void suffixArrayLength() {

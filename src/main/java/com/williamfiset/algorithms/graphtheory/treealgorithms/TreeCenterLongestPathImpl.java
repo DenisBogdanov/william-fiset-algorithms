@@ -8,7 +8,10 @@
  */
 package com.williamfiset.algorithms.graphtheory.treealgorithms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 public class TreeCenterLongestPathImpl {
 
@@ -89,7 +92,9 @@ public class TreeCenterLongestPathImpl {
     return centers;
   }
 
-  /** ********** TESTING ********* */
+  /**
+   * ********* TESTING *********
+   */
 
   // Create an empty tree as a adjacency list.
   public static List<List<Integer>> createEmptyTree(int n) {

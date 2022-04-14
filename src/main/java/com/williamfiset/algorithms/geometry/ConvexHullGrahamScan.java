@@ -8,7 +8,9 @@
 package com.williamfiset.algorithms.geometry;
 
 import java.awt.geom.Point2D;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Stack;
 
 public class ConvexHullGrahamScan {
 

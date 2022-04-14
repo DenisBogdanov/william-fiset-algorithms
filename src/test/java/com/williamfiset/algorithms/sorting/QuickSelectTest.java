@@ -1,10 +1,11 @@
 package com.williamfiset.algorithms.sorting;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.TestUtils;
-import java.util.Arrays;
 import org.junit.Test;
+
+import java.util.Arrays;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class QuickSelectTest {
 

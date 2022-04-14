@@ -14,12 +14,18 @@
  */
 package com.williamfiset.algorithms.strings;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class LongestCommonSubstring {
 
   public static void main(String[] args) {
-    String[] strings = new String[] {"abcde", "habcab", "ghabcdf"};
+    String[] strings = new String[]{"abcde", "habcab", "ghabcdf"};
 
     // Display suffix array
     List<Integer> sentinelIndexes = new ArrayList<>();
@@ -146,14 +152,14 @@ public class LongestCommonSubstring {
     // Lazy way of finding color of suffix is by comparing against all sentinel positions
     private static Color findColorFromPos(int pos, List<Integer> sentinelIndexes) {
       Color[] colors = {
-        Color.GREEN,
-        Color.RED,
-        Color.BLUE,
-        Color.YELLOW,
-        Color.MAGENTA,
-        Color.CYAN,
-        Color.WHITE,
-        Color.BLACK_BACKGROUND_BRIGHT
+          Color.GREEN,
+          Color.RED,
+          Color.BLUE,
+          Color.YELLOW,
+          Color.MAGENTA,
+          Color.CYAN,
+          Color.WHITE,
+          Color.BLACK_BACKGROUND_BRIGHT
       };
       int colorIndex = 0;
       for (int tokenIndex : sentinelIndexes) {

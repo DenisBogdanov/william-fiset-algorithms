@@ -1,6 +1,7 @@
 package com.williamfiset.algorithms.datastructures.binarysearchtree;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -9,8 +10,8 @@ import java.util.ConcurrentModificationException;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 class TestTreeNode {
 
@@ -85,7 +86,8 @@ public class BinarySearchTreeTest {
   static final int LOOPS = 100;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testIsEmpty() {

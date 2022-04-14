@@ -1,10 +1,11 @@
 package com.williamfiset.algorithms.sorting;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Random;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class RadixSortTest {
   static Random random = new Random();

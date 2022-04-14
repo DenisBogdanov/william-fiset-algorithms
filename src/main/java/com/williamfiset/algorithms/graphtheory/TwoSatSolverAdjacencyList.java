@@ -1,7 +1,10 @@
-/** NOTE: This file is still in development! */
+/**
+ * NOTE: This file is still in development!
+ */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TwoSatSolverAdjacencyList {
 

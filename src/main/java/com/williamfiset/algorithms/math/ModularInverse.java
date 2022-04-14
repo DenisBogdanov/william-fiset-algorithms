@@ -1,4 +1,6 @@
-/** Time Complexity ~O(log(a + b)) */
+/**
+ * Time Complexity ~O(log(a + b))
+ */
 package com.williamfiset.algorithms.math;
 
 public class ModularInverse {
@@ -9,7 +11,7 @@ public class ModularInverse {
   // and can be used for several things such as finding modular inverses and
   // solutions to linear Diophantine equations.
   private static long[] egcd(long a, long b) {
-    if (b == 0) return new long[] {a, 1L, 0L};
+    if (b == 0) return new long[]{a, 1L, 0L};
     long[] v = egcd(b, a % b);
     long tmp = v[1] - v[2] * (a / b);
     v[1] = v[2];

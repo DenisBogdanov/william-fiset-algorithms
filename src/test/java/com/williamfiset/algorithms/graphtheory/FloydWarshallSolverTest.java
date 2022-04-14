@@ -1,10 +1,11 @@
 package com.williamfiset.algorithms.graphtheory;
 
-import static com.google.common.truth.Truth.assertThat;
-
-import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class FloydWarshallSolverTest {
 
@@ -16,28 +17,28 @@ public class FloydWarshallSolverTest {
   @Before
   public void setup() {
     matrix1 =
-        new double[][] {
-          {0, INF, INF, INF, INF},
-          {1, 0, 7, INF, INF},
-          {INF, 3, 0, INF, INF},
-          {13, INF, 4, 0, INF},
-          {INF, INF, 3, 0, 0}
+        new double[][]{
+            {0, INF, INF, INF, INF},
+            {1, 0, 7, INF, INF},
+            {INF, 3, 0, INF, INF},
+            {13, INF, 4, 0, INF},
+            {INF, INF, 3, 0, 0}
         };
     matrix2 =
-        new double[][] {
-          {0, 3, 1, 8, INF},
-          {2, 0, 9, 4, INF},
-          {INF, INF, 0, INF, -2},
-          {INF, INF, 1, 0, INF},
-          {INF, INF, INF, 0, 0}
+        new double[][]{
+            {0, 3, 1, 8, INF},
+            {2, 0, 9, 4, INF},
+            {INF, INF, 0, INF, -2},
+            {INF, INF, 1, 0, INF},
+            {INF, INF, INF, 0, 0}
         };
     matrix3 =
-        new double[][] {
-          {0, 6, INF, 25, 3},
-          {1, 0, 6, 1, 3},
-          {INF, 1, 0, 2, 3},
-          {4, 4, 4, 0, INF},
-          {4, 3, 5, INF, 0}
+        new double[][]{
+            {0, 6, INF, 25, 3},
+            {1, 0, 6, 1, 3},
+            {INF, 1, 0, 2, 3},
+            {4, 4, 4, 0, INF},
+            {4, 3, 5, INF, 0}
         };
   }
 

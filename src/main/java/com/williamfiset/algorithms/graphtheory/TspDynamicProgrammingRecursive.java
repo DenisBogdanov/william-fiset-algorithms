@@ -13,7 +13,8 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TspDynamicProgrammingRecursive {
 

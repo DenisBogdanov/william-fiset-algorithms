@@ -1,10 +1,14 @@
 package com.williamfiset.algorithms.graphtheory;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.google.common.collect.ImmutableList;
-import java.util.*;
-import org.junit.*;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class TarjanSccSolverAdjacencyListTest {
 

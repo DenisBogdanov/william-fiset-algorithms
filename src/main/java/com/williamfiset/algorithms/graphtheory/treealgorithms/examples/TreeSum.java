@@ -13,7 +13,8 @@
  */
 package com.williamfiset.algorithms.graphtheory.treealgorithms.examples;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TreeSum {
 

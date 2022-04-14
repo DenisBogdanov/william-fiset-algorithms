@@ -1,11 +1,12 @@
 package com.williamfiset.algorithms.sorting;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.TestUtils;
+import org.junit.Test;
+
 import java.util.Arrays;
 import java.util.EnumSet;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 // Test all sorting algorithms under various constraints.
 //

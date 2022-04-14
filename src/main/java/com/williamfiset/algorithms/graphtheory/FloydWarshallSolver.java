@@ -12,11 +12,12 @@ package com.williamfiset.algorithms.graphtheory;
 // Import Java's special constants ∞ and -∞ which behave
 // as you expect them to when you do arithmetic. For example,
 // ∞ + ∞ = ∞, ∞ + x = ∞, -∞ + x = -∞ and ∞ + -∞ = Nan
-import static java.lang.Double.NEGATIVE_INFINITY;
-import static java.lang.Double.POSITIVE_INFINITY;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Double.NEGATIVE_INFINITY;
+import static java.lang.Double.POSITIVE_INFINITY;
 
 public class FloydWarshallSolver {
 
@@ -92,8 +93,8 @@ public class FloydWarshallSolver {
    * Reconstructs the shortest path (of nodes) from 'start' to 'end' inclusive.
    *
    * @return An array of nodes indexes of the shortest path from 'start' to 'end'. If 'start' and
-   *     'end' are not connected return an empty array. If the shortest path from 'start' to 'end'
-   *     are reachable by a negative cycle return -1.
+   * 'end' are not connected return an empty array. If the shortest path from 'start' to 'end'
+   * are reachable by a negative cycle return -1.
    */
   public List<Integer> reconstructShortestPath(int start, int end) {
     solve();

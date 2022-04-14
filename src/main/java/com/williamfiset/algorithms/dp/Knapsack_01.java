@@ -18,10 +18,10 @@ public class Knapsack_01 {
 
   /**
    * @param capacity - The maximum capacity of the knapsack
-   * @param W - The weights of the items
-   * @param V - The values of the items
+   * @param W        - The weights of the items
+   * @param V        - The values of the items
    * @return The maximum achievable profit of selecting a subset of the elements such that the
-   *     capacity of the knapsack is not exceeded
+   * capacity of the knapsack is not exceeded
    */
   public static int knapsack(int capacity, int[] W, int[] V) {
 
@@ -80,8 +80,8 @@ public class Knapsack_01 {
     System.out.println(knapsack(capacity, W, V));
 
     capacity = 7;
-    V = new int[] {2, 2, 4, 5, 3};
-    W = new int[] {3, 1, 3, 4, 2};
+    V = new int[]{2, 2, 4, 5, 3};
+    W = new int[]{3, 1, 3, 4, 2};
     System.out.println(knapsack(capacity, W, V));
   }
 }

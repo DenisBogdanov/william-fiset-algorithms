@@ -9,6 +9,7 @@
 package com.williamfiset.algorithms.graphtheory.networkflow;
 
 import com.williamfiset.algorithms.utils.graphutils.Utils;
+
 import java.util.List;
 
 public class BipartiteGraphCheckAdjacencyList {

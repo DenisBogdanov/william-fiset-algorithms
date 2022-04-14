@@ -1,4 +1,6 @@
-/** Solve a system of linear equations in a finite field Time Complexity: O(r^2c) */
+/**
+ * Solve a system of linear equations in a finite field Time Complexity: O(r^2c)
+ */
 package com.williamfiset.algorithms.linearalgebra;
 
 class ModularLinearAlgebra {
@@ -97,7 +99,7 @@ class ModularLinearAlgebra {
 
   // Returns {gcd(a,b), x, y} such that ax+by=gcd(a,b)
   static int[] egcd(int a, int b) {
-    if (b == 0) return new int[] {a, 1, 0};
+    if (b == 0) return new int[]{a, 1, 0};
     int[] ret = egcd(b, a % b);
     int tmp = ret[1] - ret[2] * (a / b);
     ret[1] = ret[2];
@@ -121,9 +123,9 @@ class ModularLinearAlgebra {
 
     int p = 7;
     int[][] augmentedMatrix = {
-      {5, 1, 6, 0},
-      {3, 0, 4, 1},
-      {1, 5, 2, 4}
+        {5, 1, 6, 0},
+        {3, 0, 4, 1},
+        {1, 5, 2, 4}
     };
     // Note that negative values have been changed to their
     // corresponding values in Z_p

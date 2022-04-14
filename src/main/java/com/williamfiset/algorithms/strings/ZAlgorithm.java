@@ -12,7 +12,7 @@ public class ZAlgorithm {
    */
   public int[] calculateZ(String text) {
     if (isNull(text)) {
-      return new int[] {};
+      return new int[]{};
     }
     int size = text.length();
     int[] Z = new int[size];

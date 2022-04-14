@@ -7,7 +7,11 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class ChinesePostmanProblem {
 
@@ -163,7 +167,8 @@ public class ChinesePostmanProblem {
       double cost = 0;
       int impossibleEdgeMatches = 0;
 
-      public MatchingCost() {}
+      public MatchingCost() {
+      }
 
       public MatchingCost(double cost, int iem) {
         this.cost = cost;

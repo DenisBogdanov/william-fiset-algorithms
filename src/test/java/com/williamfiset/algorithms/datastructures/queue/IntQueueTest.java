@@ -1,15 +1,17 @@
 package com.williamfiset.algorithms.datastructures.queue;
 
-import static com.google.common.truth.Truth.assertThat;
-
-import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayDeque;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class IntQueueTest {
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testEmptyQueue() {

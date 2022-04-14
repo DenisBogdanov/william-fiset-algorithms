@@ -1,6 +1,3 @@
-import java.io.*;
-import java.util.*;
-
 public class EditDistance {
 
   final char[] a, b;

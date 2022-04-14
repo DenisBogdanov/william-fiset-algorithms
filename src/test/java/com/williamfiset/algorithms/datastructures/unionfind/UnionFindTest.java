@@ -1,9 +1,10 @@
 package com.williamfiset.algorithms.datastructures.unionfind;
 
 // import static org.junit.Assert.*;
-import static com.google.common.truth.Truth.assertThat;
 
-import org.junit.*;
+import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class UnionFindTest {
 

@@ -10,12 +10,12 @@
  */
 package com.williamfiset.algorithms.geometry;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.abs;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class LineSegmentLineSegmentIntersection {
 
@@ -41,10 +41,10 @@ public class LineSegmentLineSegmentIntersection {
   public static Pt[] lineSegmentLineSegmentIntersection(Pt p1, Pt p2, Pt p3, Pt p4) {
 
     // No intersection.
-    if (!segmentsIntersect(p1, p2, p3, p4)) return new Pt[] {};
+    if (!segmentsIntersect(p1, p2, p3, p4)) return new Pt[]{};
 
     // Both segments are a single point.
-    if (p1.equals(p2) && p2.equals(p3) && p3.equals(p4)) return new Pt[] {p1};
+    if (p1.equals(p2) && p2.equals(p3) && p3.equals(p4)) return new Pt[]{p1};
 
     List<Pt> endpoints = getCommonEndpoints(p1, p2, p3, p4);
     int n = endpoints.size();
@@ -53,10 +53,10 @@ public class LineSegmentLineSegmentIntersection {
     // NOTE: checking only n == 1 is insufficient to return early
     // because the solution might be a sub segment.
     boolean singleton = p1.equals(p2) || p3.equals(p4);
-    if (n == 1 && singleton) return new Pt[] {endpoints.get(0)};
+    if (n == 1 && singleton) return new Pt[]{endpoints.get(0)};
 
     // Segments are equal.
-    if (n == 2) return new Pt[] {endpoints.get(0), endpoints.get(1)};
+    if (n == 2) return new Pt[]{endpoints.get(0), endpoints.get(1)};
 
     boolean collinearSegments = (orientation(p1, p2, p3) == 0) && (orientation(p1, p2, p4) == 0);
 
@@ -65,10 +65,10 @@ public class LineSegmentLineSegmentIntersection {
     if (collinearSegments) {
 
       // Segment #2 is enclosed in segment #1
-      if (pointOnLine(p1, p2, p3) && pointOnLine(p1, p2, p4)) return new Pt[] {p3, p4};
+      if (pointOnLine(p1, p2, p3) && pointOnLine(p1, p2, p4)) return new Pt[]{p3, p4};
 
       // Segment #1 is enclosed in segment #2
-      if (pointOnLine(p3, p4, p1) && pointOnLine(p3, p4, p2)) return new Pt[] {p1, p2};
+      if (pointOnLine(p3, p4, p1) && pointOnLine(p3, p4, p2)) return new Pt[]{p1, p2};
 
       // The subsegment is part of segment #1 and part of segment #2.
       // Find the middle points which correspond to this segment.
@@ -76,9 +76,9 @@ public class LineSegmentLineSegmentIntersection {
       Pt midPoint2 = pointOnLine(p3, p4, p1) ? p1 : p2;
 
       // There is actually only one middle point!
-      if (midPoint1.equals(midPoint2)) return new Pt[] {midPoint1};
+      if (midPoint1.equals(midPoint2)) return new Pt[]{midPoint1};
 
-      return new Pt[] {midPoint1, midPoint2};
+      return new Pt[]{midPoint1, midPoint2};
     }
 
     /* Beyond this point there is a unique intersection point. */
@@ -87,14 +87,14 @@ public class LineSegmentLineSegmentIntersection {
     if (abs(p1.x - p2.x) < EPS) {
       double m = (p4.y - p3.y) / (p4.x - p3.x);
       double b = p3.y - m * p3.x;
-      return new Pt[] {new Pt(p1.x, m * p1.x + b)};
+      return new Pt[]{new Pt(p1.x, m * p1.x + b)};
     }
 
     // Segment #2 is a vertical line.
     if (abs(p3.x - p4.x) < EPS) {
       double m = (p2.y - p1.y) / (p2.x - p1.x);
       double b = p1.y - m * p1.x;
-      return new Pt[] {new Pt(p3.x, m * p3.x + b)};
+      return new Pt[]{new Pt(p3.x, m * p3.x + b)};
     }
 
     double m1 = (p2.y - p1.y) / (p2.x - p1.x);
@@ -104,7 +104,7 @@ public class LineSegmentLineSegmentIntersection {
     double x = (b2 - b1) / (m1 - m2);
     double y = (m1 * b2 - m2 * b1) / (m1 - m2);
 
-    return new Pt[] {new Pt(x, y)};
+    return new Pt[]{new Pt(x, y)};
   }
 
   // Finds the orientation of point 'c' relative to the line segment (a, b)

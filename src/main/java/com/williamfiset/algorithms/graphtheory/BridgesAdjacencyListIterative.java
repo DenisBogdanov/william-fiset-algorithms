@@ -8,9 +8,12 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import static java.lang.Math.min;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.List;
 
-import java.util.*;
+import static java.lang.Math.min;
 
 public class BridgesAdjacencyListIterative {
 

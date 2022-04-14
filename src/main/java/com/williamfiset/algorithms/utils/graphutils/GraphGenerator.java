@@ -1,6 +1,6 @@
 package com.williamfiset.algorithms.utils.graphutils;
 
-import java.util.*;
+import java.util.List;
 
 public class GraphGenerator {
 

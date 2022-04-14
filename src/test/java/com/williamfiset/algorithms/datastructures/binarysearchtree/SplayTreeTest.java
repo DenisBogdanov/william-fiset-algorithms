@@ -1,10 +1,14 @@
 package com.williamfiset.algorithms.datastructures.binarysearchtree;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.datastructures.utils.TestUtils;
-import java.util.*;
 import org.junit.Test;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class SplayTreeTest {
 
@@ -60,7 +64,9 @@ public class SplayTreeTest {
     }
   }
 
-  /** Comparison With Built In Priority Queue* */
+  /**
+   * Comparison With Built In Priority Queue*
+   */
   @Test
   public void splayTreePriorityQueueConsistencyTest() {
     SplayTree<Integer> splayTree = new SplayTree<>();

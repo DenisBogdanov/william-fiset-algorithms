@@ -8,9 +8,9 @@ package com.williamfiset.algorithms.dp;
 public class MaximumSubarray {
 
   public static void main(String[] args) {
-    System.out.println(maximumSubarrayValue(new int[] {-5}));
-    System.out.println(maximumSubarrayValue(new int[] {-5, -4, -10, -3, -1, -12, -6}));
-    System.out.println(maximumSubarrayValue(new int[] {1, 2, 1, -7, 2, -1, 40, -89}));
+    System.out.println(maximumSubarrayValue(new int[]{-5}));
+    System.out.println(maximumSubarrayValue(new int[]{-5, -4, -10, -3, -1, -12, -6}));
+    System.out.println(maximumSubarrayValue(new int[]{1, 2, 1, -7, 2, -1, 40, -89}));
   }
 
   // Return the value of the maximum subarray in 'ar'

@@ -93,12 +93,16 @@ Matrix: 154691124 nanos
 
 package com.williamfiset.algorithms.graphtheory.analysis;
 
-import static java.lang.Math.*;
-
 import java.time.Duration;
 import java.time.Instant;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class PrimsGraphRepresentationAnaylsis {
 

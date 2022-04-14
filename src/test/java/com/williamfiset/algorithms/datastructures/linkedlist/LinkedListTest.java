@@ -1,11 +1,13 @@
 package com.williamfiset.algorithms.datastructures.linkedlist;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.junit.*;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class LinkedListTest {
   private static final int LOOPS = 10000;

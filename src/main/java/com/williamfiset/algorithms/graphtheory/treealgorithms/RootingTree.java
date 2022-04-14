@@ -8,7 +8,9 @@
  */
 package com.williamfiset.algorithms.graphtheory.treealgorithms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public class RootingTree {
 
@@ -82,7 +84,9 @@ public class RootingTree {
     return node;
   }
 
-  /** ********** TESTING ********* */
+  /**
+   * ********* TESTING *********
+   */
 
   // Create a graph as a adjacency list
   private static List<List<Integer>> createGraph(int n) {

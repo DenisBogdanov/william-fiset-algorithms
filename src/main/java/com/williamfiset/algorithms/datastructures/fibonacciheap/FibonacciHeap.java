@@ -7,10 +7,6 @@
  */
 package com.williamfiset.algorithms.datastructures.fibonacciheap;
 
-import static java.lang.Math.floor;
-import static java.lang.Math.log;
-import static java.lang.Math.sqrt;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -21,6 +17,10 @@ import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
+
+import static java.lang.Math.floor;
+import static java.lang.Math.log;
+import static java.lang.Math.sqrt;
 
 public final class FibonacciHeap<E> implements Queue<E> {
 
@@ -89,7 +89,9 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return true;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean addAll(Collection<? extends E> c) {
     for (E element : c) {
       add(element);
@@ -98,7 +100,9 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return true;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public void clear() {
     minimumNode = null;
     size = 0;
@@ -107,7 +111,9 @@ public final class FibonacciHeap<E> implements Queue<E> {
     elementsIndex.clear();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean contains(Object o) {
     if (o == null) {
       return false;
@@ -116,7 +122,9 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return elementsIndex.contains(o);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean containsAll(Collection<?> c) {
     if (c == null) {
       return false;
@@ -131,47 +139,65 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return true;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean isEmpty() {
     return minimumNode == null;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public Iterator<E> iterator() {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean remove(Object o) {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean removeAll(Collection<?> c) {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean retainAll(Collection<?> c) {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public int size() {
     return size;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public Object[] toArray() {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public <T> T[] toArray(T[] a) {
     throw new UnsupportedOperationException();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public E element() {
     if (isEmpty()) {
       throw new NoSuchElementException();
@@ -179,12 +205,16 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return peek();
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public boolean offer(E e) {
     return add(e);
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public E peek() {
     if (isEmpty()) {
       return null;
@@ -244,7 +274,9 @@ public final class FibonacciHeap<E> implements Queue<E> {
     return minimum;
   }
 
-  /** {@inheritDoc} */
+  /**
+   * {@inheritDoc}
+   */
   public E remove() {
     // FIB-HEAP-EXTRACT-MIN(H)
 

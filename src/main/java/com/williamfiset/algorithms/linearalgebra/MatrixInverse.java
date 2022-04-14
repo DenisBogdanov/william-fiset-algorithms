@@ -85,9 +85,9 @@ class MatrixInverse {
 
     // Check this matrix is invertable
     double[][] matrix = {
-      {2, -4, 0},
-      {0, 6, 0},
-      {2, 2, -2}
+        {2, -4, 0},
+        {0, 6, 0},
+        {2, 2, -2}
     };
 
     double[][] inv = inverse(matrix);

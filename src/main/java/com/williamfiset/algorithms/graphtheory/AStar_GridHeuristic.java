@@ -1,7 +1,17 @@
-/** NOTE: This algorithm is still a work in progress! See issue #18 to track progress. */
+/**
+ * NOTE: This algorithm is still a work in progress! See issue #18 to track progress.
+ */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.Random;
+import java.util.Set;
 
 public class AStar_GridHeuristic {
 

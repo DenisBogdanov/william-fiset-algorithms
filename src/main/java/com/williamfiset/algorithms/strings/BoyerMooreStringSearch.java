@@ -5,12 +5,12 @@
  */
 package com.williamfiset.algorithms.strings;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.util.Objects.isNull;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BoyerMooreStringSearch {
 
@@ -19,7 +19,7 @@ public class BoyerMooreStringSearch {
   /**
    * Performs Boyer-Moore search on a given string with a given pattern
    *
-   * @param text the string being searched in
+   * @param text    the string being searched in
    * @param pattern the string being searched for
    * @return List of indexes where the pattern occurs
    */

@@ -12,12 +12,12 @@
  */
 package com.williamfiset.algorithms.datastructures.priorityqueue;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class MinIndexedDHeap<T extends Comparable<T>> {
 

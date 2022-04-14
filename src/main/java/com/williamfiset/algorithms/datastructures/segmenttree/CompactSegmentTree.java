@@ -70,13 +70,13 @@ public class CompactSegmentTree {
   }
 
   private static void example1() {
-    long[] values = new long[] {3, 0, 8, 9, 8, 2, 5, 3, 7, 1};
+    long[] values = new long[]{3, 0, 8, 9, 8, 2, 5, 3, 7, 1};
     CompactSegmentTree st = new CompactSegmentTree(values);
     System.out.println(java.util.Arrays.toString(st.tree));
   }
 
   private static void example2() {
-    long[] values = new long[] {1, 1, 1, 1, 1, 1};
+    long[] values = new long[]{1, 1, 1, 1, 1, 1};
     CompactSegmentTree st = new CompactSegmentTree(values);
     System.out.println(java.util.Arrays.toString(st.tree));
 

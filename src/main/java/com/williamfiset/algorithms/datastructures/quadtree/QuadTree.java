@@ -7,9 +7,12 @@
  */
 package com.williamfiset.algorithms.datastructures.quadtree;
 
-import static java.lang.Double.POSITIVE_INFINITY;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
 
-import java.util.*;
+import static java.lang.Double.POSITIVE_INFINITY;
 
 public class QuadTree {
 

@@ -4,11 +4,11 @@
  */
 package com.williamfiset.algorithms.datastructures.segmenttree;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class GenericSegmentTree2Test {
 
@@ -16,7 +16,8 @@ public class GenericSegmentTree2Test {
   static int MAX_N = 28;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testSumQuerySumUpdate_Simple() {
@@ -375,15 +376,15 @@ public class GenericSegmentTree2Test {
   @Test
   public void testAllFunctionCombinations() {
     GenericSegmentTree2.SegmentCombinationFn[] combinationFns = {
-      GenericSegmentTree2.SegmentCombinationFn.SUM,
-      GenericSegmentTree2.SegmentCombinationFn.MIN,
-      GenericSegmentTree2.SegmentCombinationFn.MAX,
+        GenericSegmentTree2.SegmentCombinationFn.SUM,
+        GenericSegmentTree2.SegmentCombinationFn.MIN,
+        GenericSegmentTree2.SegmentCombinationFn.MAX,
     };
 
     GenericSegmentTree2.RangeUpdateFn[] rangeUpdateFns = {
-      GenericSegmentTree2.RangeUpdateFn.ADDITION,
-      GenericSegmentTree2.RangeUpdateFn.ASSIGN,
-      GenericSegmentTree2.RangeUpdateFn.MULTIPLICATION
+        GenericSegmentTree2.RangeUpdateFn.ADDITION,
+        GenericSegmentTree2.RangeUpdateFn.ASSIGN,
+        GenericSegmentTree2.RangeUpdateFn.MULTIPLICATION
     };
 
     for (GenericSegmentTree2.SegmentCombinationFn combinationFn : combinationFns) {
@@ -396,7 +397,7 @@ public class GenericSegmentTree2Test {
         // and swap values when a negative number is found?
         if (rangeUpdateFn == GenericSegmentTree2.RangeUpdateFn.MULTIPLICATION
             && (combinationFn == GenericSegmentTree2.SegmentCombinationFn.MIN
-                || combinationFn == GenericSegmentTree2.SegmentCombinationFn.MAX)) {
+            || combinationFn == GenericSegmentTree2.SegmentCombinationFn.MAX)) {
           continue;
         }
 

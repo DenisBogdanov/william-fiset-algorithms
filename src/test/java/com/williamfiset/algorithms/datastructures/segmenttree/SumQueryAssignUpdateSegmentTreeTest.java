@@ -4,18 +4,19 @@
  */
 package com.williamfiset.algorithms.datastructures.segmenttree;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class SumQueryAssignUpdateSegmentTreeTest {
 
   static int ITERATIONS = 100;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void simpleTest() {

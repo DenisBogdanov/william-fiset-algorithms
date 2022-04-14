@@ -22,7 +22,9 @@ public final class Utils {
     return graph;
   }
 
-  /** Adds an unweighted directed edge from the node at index 'from' to the node at index 'to'. */
+  /**
+   * Adds an unweighted directed edge from the node at index 'from' to the node at index 'to'.
+   */
   public static void addDirectedEdge(List<List<Integer>> graph, int from, int to) {
     if (graph == null) throw new IllegalArgumentException("graph cannot be null");
     int n = graph.size();
@@ -33,7 +35,9 @@ public final class Utils {
     graph.get(from).add(to);
   }
 
-  /** Adds an unweighted undirected edge from the node at index 'from' to the node at index 'to'. */
+  /**
+   * Adds an unweighted undirected edge from the node at index 'from' to the node at index 'to'.
+   */
   public static void addUndirectedEdge(List<List<Integer>> graph, int from, int to) {
     addDirectedEdge(graph, from, to);
     addDirectedEdge(graph, to, from);

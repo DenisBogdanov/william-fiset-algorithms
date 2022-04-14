@@ -16,9 +16,13 @@
  */
 package com.williamfiset.algorithms.graphtheory.networkflow.examples;
 
-import static java.lang.Math.min;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.List;
 
-import java.util.*;
+import static java.lang.Math.min;
 
 public class DinicsExample {
 
@@ -99,8 +103,8 @@ public class DinicsExample {
     /**
      * Adds a directed edge (and its residual edge) to the flow graph.
      *
-     * @param from - The index of the node the directed edge starts at.
-     * @param to - The index of the node the directed edge ends at.
+     * @param from     - The index of the node the directed edge starts at.
+     * @param to       - The index of the node the directed edge ends at.
      * @param capacity - The capacity of the edge
      */
     public void addEdge(int from, int to, long capacity) {

@@ -20,45 +20,45 @@ public class MatrixDeterminantLaplaceExpansion {
     System.out.println(determinant(m)); // 6
 
     m =
-        new double[][] {
-          {1, 2},
-          {3, 4}
+        new double[][]{
+            {1, 2},
+            {3, 4}
         };
     System.out.println(determinant(m)); // -2
 
     m =
-        new double[][] {
-          {1, -2, 3},
-          {4, -5, 6},
-          {7, -8, 10}
+        new double[][]{
+            {1, -2, 3},
+            {4, -5, 6},
+            {7, -8, 10}
         };
     System.out.println(determinant(m)); // 3
 
     m =
-        new double[][] {
-          {1, -2, 3, 7},
-          {4, -5, 6, 2},
-          {7, -8, 10, 3},
-          {-8, 10, 3, 2}
+        new double[][]{
+            {1, -2, 3, 7},
+            {4, -5, 6, 2},
+            {7, -8, 10, 3},
+            {-8, 10, 3, 2}
         };
     System.out.println(determinant(m)); // -252
 
     m =
-        new double[][] {
-          {1, -2, 3, 7},
-          {4, -5, 6, 2},
-          {7, -8, 10, 3},
-          {-8, 10, 3, 2}
+        new double[][]{
+            {1, -2, 3, 7},
+            {4, -5, 6, 2},
+            {7, -8, 10, 3},
+            {-8, 10, 3, 2}
         };
     System.out.println(determinant(m)); // -252
 
     m =
-        new double[][] {
-          {1, -2, 3, 7, 12},
-          {4, -5, 6, 2, 4},
-          {7, -8, 10, 3, 1},
-          {-8, 10, 8, 3, 2},
-          {5, 5, 5, 5, 5}
+        new double[][]{
+            {1, -2, 3, 7, 12},
+            {4, -5, 6, 2, 4},
+            {7, -8, 10, 3, 1},
+            {-8, 10, 8, 3, 2},
+            {5, 5, 5, 5, 5}
         };
     System.out.println(determinant(m)); // -27435
 

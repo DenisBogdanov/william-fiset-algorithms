@@ -1,4 +1,6 @@
-/** @author Rohit Mazumder, mazumder.rohit7@gmai.com */
+/**
+ * @author Rohit Mazumder, mazumder.rohit7@gmai.com
+ */
 package com.williamfiset.algorithms.math;
 
 import java.math.BigInteger;
@@ -23,10 +25,10 @@ public class NChooseRModPrime {
     }
 
     return (factorial[N]
-            * ModularInverse.modInv(factorial[R], P)
-            % P
-            * ModularInverse.modInv(factorial[N - R], P)
-            % P)
+        * ModularInverse.modInv(factorial[R], P)
+        % P
+        * ModularInverse.modInv(factorial[N - R], P)
+        % P)
         % P;
   }
 

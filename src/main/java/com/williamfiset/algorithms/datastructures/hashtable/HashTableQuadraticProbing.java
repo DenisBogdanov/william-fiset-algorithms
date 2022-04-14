@@ -36,7 +36,8 @@ public class HashTableQuadraticProbing<K, V> extends HashTableOpenAddressingBase
 
   // No setup required for quadratic probing.
   @Override
-  protected void setupProbing(K key) {}
+  protected void setupProbing(K key) {
+  }
 
   @Override
   protected int probe(int x) {

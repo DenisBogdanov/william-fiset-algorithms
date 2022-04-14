@@ -90,17 +90,17 @@ class LinearRecurrenceSolver {
    * c_2*f(n-2) + ... + c_m*f(n-m) in O(m^3log(n)) time
    *
    * @param coefficients - contains the coefficients for the recurrence, so [c_1, c_2, c_3, ... ,
-   *     c_m]
-   * @param f_0 - The value of the function at f(0). This is usually 1 or k.
-   * @param k - The constant k added to the recurrence
-   * @param n - The nth term of the recurrence you wish to find
-   *     <p>NOTE1: The numbers produced by this method can get VERY LARGE quickly so watch out for
-   *     overflow because there is a very high probability it will occur.
-   *     <p>NOTE2: Make sure the dimension of coefficients array is no bigger than it needs to be.
-   *     For instance do not add any additional zero coefficient terms at the end of the
-   *     coefficients array as this is throw off the recurrence.
-   *     <p>EXAMPLE: If your recurrence is f(n) = 2 + 3*f(n-1) + 5f(n-4) with f(0) = 2 and you want
-   *     to find f(100) call the function like: solveRecurrence([3, 0, 0, 5], 2, 2, 100)
+   *                     c_m]
+   * @param f_0          - The value of the function at f(0). This is usually 1 or k.
+   * @param k            - The constant k added to the recurrence
+   * @param n            - The nth term of the recurrence you wish to find
+   *                     <p>NOTE1: The numbers produced by this method can get VERY LARGE quickly so watch out for
+   *                     overflow because there is a very high probability it will occur.
+   *                     <p>NOTE2: Make sure the dimension of coefficients array is no bigger than it needs to be.
+   *                     For instance do not add any additional zero coefficient terms at the end of the
+   *                     coefficients array as this is throw off the recurrence.
+   *                     <p>EXAMPLE: If your recurrence is f(n) = 2 + 3*f(n-1) + 5f(n-4) with f(0) = 2 and you want
+   *                     to find f(100) call the function like: solveRecurrence([3, 0, 0, 5], 2, 2, 100)
    */
   static long solveRecurrence(long[] coefficients, long f_0, long k, long n) {
 
@@ -139,9 +139,9 @@ class LinearRecurrenceSolver {
    * values of the function: [f(0), f(1), f(2), ...]
    *
    * @param coeffs - The coefficients on your linear recurrence
-   * @param f_0 - The value of the function at f(0), this is usually 1 or k
-   * @param k - The constant value in the linear recurrence
-   *     <p>NOTE: This method assumes that f(n) = 0 when n < 0
+   * @param f_0    - The value of the function at f(0), this is usually 1 or k
+   * @param k      - The constant value in the linear recurrence
+   *               <p>NOTE: This method assumes that f(n) = 0 when n < 0
    */
   static long[] computeInitialValues(long[] coeffs, long f_0, long k) {
 

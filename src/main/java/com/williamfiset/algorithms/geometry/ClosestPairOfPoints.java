@@ -7,9 +7,12 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.TreeSet;
 
-import java.util.*;
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
 
 public class ClosestPairOfPoints {
 
@@ -53,7 +56,7 @@ public class ClosestPairOfPoints {
   // Finds the closest pair of points in a list of points
   public static PT[] closestPair(PT[] points) {
 
-    if (points == null || points.length < 2) return new PT[] {};
+    if (points == null || points.length < 2) return new PT[]{};
 
     final int n = points.length;
     int xQueueFront = 0, xQueueBack = 0;
@@ -116,6 +119,6 @@ public class ClosestPairOfPoints {
       xQueueBack++;
     }
 
-    return new PT[] {pt1, pt2};
+    return new PT[]{pt1, pt2};
   }
 }

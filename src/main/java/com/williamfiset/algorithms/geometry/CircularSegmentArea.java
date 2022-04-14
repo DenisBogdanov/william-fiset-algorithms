@@ -8,9 +8,12 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
-
 import java.awt.geom.Point2D;
+
+import static java.lang.Math.PI;
+import static java.lang.Math.abs;
+import static java.lang.Math.acos;
+import static java.lang.Math.sqrt;
 
 public class CircularSegmentArea {
 

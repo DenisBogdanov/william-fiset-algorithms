@@ -7,6 +7,7 @@
  *
  * <p>Solution by: William Fiset
  */
+
 import java.util.Scanner;
 
 public class NarrowArtGalleryRecursive {
@@ -106,12 +107,12 @@ public class NarrowArtGalleryRecursive {
     //
     // Gallery has been flipped like it would when inputted:
     gallery =
-        new int[][] {
-          {8, 10},
-          {4, 3},
-          {0, 1},
-          {5, 9},
-          {3, 2},
+        new int[][]{
+            {8, 10},
+            {4, 3},
+            {0, 1},
+            {5, 9},
+            {3, 2},
         };
     System.out.println(f(4, 3, LEFT));
     System.out.println(f(4, 3, RIGHT));
@@ -133,13 +134,13 @@ public class NarrowArtGalleryRecursive {
     //
     // Gallery has been flipped like it would when inputted:
     gallery =
-        new int[][] {
-          {1, 0},
-          {3, 3},
-          {1, 3},
-          {1, 2},
-          {2, 1},
-          {3, 1},
+        new int[][]{
+            {1, 0},
+            {3, 3},
+            {1, 3},
+            {1, 2},
+            {2, 1},
+            {3, 1},
         };
     f(N - 1, K);
 

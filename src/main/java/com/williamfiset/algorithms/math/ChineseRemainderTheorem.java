@@ -20,7 +20,11 @@
  */
 package com.williamfiset.algorithms.math;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.ListIterator;
+import java.util.PriorityQueue;
 
 public class ChineseRemainderTheorem {
 
@@ -39,7 +43,7 @@ public class ChineseRemainderTheorem {
     m = Math.abs(m);
     a = (((a * inv) % m) + m) % m;
 
-    return new long[] {a, m};
+    return new long[]{a, m};
   }
 
   // reduce() takes a set of equations and reduces them to an equivalent
@@ -118,7 +122,7 @@ public class ChineseRemainderTheorem {
       x = ((x % M) + M) % M;
     }
 
-    return new long[] {x, M};
+    return new long[]{x, M};
   }
 
   private static ArrayList<Long> primeFactorization(long n) {
@@ -163,7 +167,7 @@ public class ChineseRemainderTheorem {
 
   // Extended euclidean algorithm
   private static long[] egcd(long a, long b) {
-    if (b == 0) return new long[] {a, 1, 0};
+    if (b == 0) return new long[]{a, 1, 0};
     else {
       long[] ret = egcd(b, a % b);
       long tmp = ret[1] - ret[2] * (a / b);

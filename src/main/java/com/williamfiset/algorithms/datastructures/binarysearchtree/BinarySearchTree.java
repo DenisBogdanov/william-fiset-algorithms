@@ -182,11 +182,11 @@ public class BinarySearchTree<T extends Comparable<T>> {
     // looking for is smaller than the current value
     if (cmp < 0) return contains(node.left, elem);
 
-    // Dig into the right subtree because the value we're
-    // looking for is greater than the current value
+      // Dig into the right subtree because the value we're
+      // looking for is greater than the current value
     else if (cmp > 0) return contains(node.right, elem);
 
-    // We found the value we were looking for
+      // We found the value we were looking for
     else return true;
   }
 

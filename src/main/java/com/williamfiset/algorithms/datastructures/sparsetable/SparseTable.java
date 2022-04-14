@@ -41,7 +41,9 @@ public class SparseTable {
     SUM,
     MULT,
     GCD
-  };
+  }
+
+  ;
 
   private Operation op;
 

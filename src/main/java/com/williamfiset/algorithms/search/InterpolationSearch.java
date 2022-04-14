@@ -12,7 +12,7 @@ public class InterpolationSearch {
    * algorithm runs in a time complexity of ~O(log(log(n))).
    *
    * @param nums - an ordered list containing uniformly distributed values.
-   * @param val - the value we're looking for in 'nums'
+   * @param val  - the value we're looking for in 'nums'
    */
   public static int interpolationSearch(int[] nums, int val) {
     int lo = 0, mid = 0, hi = nums.length - 1;

@@ -1,7 +1,11 @@
-/** WIP */
+/**
+ * WIP
+ */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Boruvkas {
 
@@ -17,6 +21,7 @@ public class Boruvkas {
     public String toString() {
       return String.format("%d %d, cost: %d", u, v, cost);
     }
+
     // @Override
     public int compareTo(Edge other) {
       int cmp = cost - other.cost;

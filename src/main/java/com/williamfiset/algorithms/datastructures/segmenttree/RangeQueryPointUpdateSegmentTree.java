@@ -113,9 +113,9 @@ public class RangeQueryPointUpdateSegmentTree {
   /**
    * Builds a segment tree by starting with the leaf nodes and combining segment values on callback.
    *
-   * @param i the index of the segment in the segment tree
-   * @param tl the left index (inclusive) of the segment range
-   * @param tr the right index (inclusive) of the segment range
+   * @param i      the index of the segment in the segment tree
+   * @param tl     the left index (inclusive) of the segment range
+   * @param tr     the right index (inclusive) of the segment range
    * @param values the initial values array
    */
   private void buildSegmentTree(int i, int tl, int tr, long[] values) {
@@ -153,11 +153,11 @@ public class RangeQueryPointUpdateSegmentTree {
   /**
    * Returns the range query value of the range [l, r]
    *
-   * @param i the index of the current segment in the tree
+   * @param i  the index of the current segment in the tree
    * @param tl the left endpoint (inclusive) of the current segment
    * @param tr the right endpoint (inclusive) of the current segment
-   * @param l the target left endpoint (inclusive) for the range query
-   * @param r the target right endpoint (inclusive) for the range query
+   * @param l  the target left endpoint (inclusive) for the range query
+   * @param r  the target right endpoint (inclusive) for the range query
    */
   private long rangeQuery(int i, int tl, int tr, int l, int r) {
     if (l > r) {
@@ -191,11 +191,11 @@ public class RangeQueryPointUpdateSegmentTree {
    * <p>This version of the range query implementation has the advantage that it doesn't need to
    * know the explicit base case value for each range query type.
    *
-   * @param i the index of the current segment in the tree
+   * @param i  the index of the current segment in the tree
    * @param tl the left endpoint (inclusive) of the current segment
    * @param tr the right endpoint (inclusive) of the current segment
-   * @param l the target left endpoint (inclusive) for the range query
-   * @param r the target right endpoint (inclusive) for the range query
+   * @param l  the target left endpoint (inclusive) for the range query
+   * @param r  the target right endpoint (inclusive) for the range query
    */
   private long rangeQuery2(int i, int tl, int tr, int l, int r) {
     if (tl == l && tr == r) {
@@ -228,10 +228,10 @@ public class RangeQueryPointUpdateSegmentTree {
    * the leaf segment with the new value, and re-compute all affected segment values on the
    * callback.
    *
-   * @param i the index of the current segment in the tree
-   * @param pos the target position to update
-   * @param tl the left segment endpoint (inclusive)
-   * @param tr the right segment endpoint (inclusive)
+   * @param i        the index of the current segment in the tree
+   * @param pos      the target position to update
+   * @param tl       the left segment endpoint (inclusive)
+   * @param tr       the right segment endpoint (inclusive)
    * @param newValue the new value to update
    */
   private void pointUpdate(int i, int pos, int tl, int tr, long newValue) {

@@ -1,8 +1,8 @@
 package com.williamfiset.algorithms.datastructures.dynamicarray;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class DynamicArrayTest {
 

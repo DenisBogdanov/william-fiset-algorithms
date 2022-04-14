@@ -78,9 +78,9 @@ class GaussianElimination {
     // Then we would setup the following augment matrix:
 
     double[][] augmentedMatrix = {
-      {2, -3, 5, 10},
-      {1, 2, -1, 18},
-      {6, -1, 0, 12}
+        {2, -3, 5, 10},
+        {1, 2, -1, 18},
+        {6, -1, 0, 12}
     };
 
     solve(augmentedMatrix);

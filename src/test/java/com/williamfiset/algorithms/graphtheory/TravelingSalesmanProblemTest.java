@@ -1,9 +1,10 @@
 package com.williamfiset.algorithms.graphtheory;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
 
-import java.util.*;
-import org.junit.*;
+import java.util.List;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class TravelingSalesmanProblemTest {
 
@@ -12,9 +13,9 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalArgumentException.class)
   public void testTspRecursiveInvalidStartNode() {
     double[][] dist = {
-      {1, 2, 3},
-      {4, 5, 6},
-      {7, 8, 9}
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
     };
     new TspDynamicProgrammingRecursive(321, dist);
   }
@@ -22,9 +23,9 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalArgumentException.class)
   public void testTspIterativeInvalidStartNode() {
     double[][] dist = {
-      {1, 2, 3},
-      {4, 5, 6},
-      {7, 8, 9}
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
     };
     new TspDynamicProgrammingIterative(321, dist);
   }
@@ -32,8 +33,8 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalStateException.class)
   public void testTspRecursiveNonSquareMatrix() {
     double[][] dist = {
-      {1, 2, 3},
-      {4, 5, 6}
+        {1, 2, 3},
+        {4, 5, 6}
     };
     new TspDynamicProgrammingRecursive(dist);
   }
@@ -41,8 +42,8 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalStateException.class)
   public void testTspIterativeNonSquareMatrix() {
     double[][] dist = {
-      {1, 2, 3},
-      {4, 5, 6}
+        {1, 2, 3},
+        {4, 5, 6}
     };
     new TspDynamicProgrammingIterative(dist);
   }
@@ -50,8 +51,8 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalStateException.class)
   public void testTspRecursiveSmallGraph() {
     double[][] dist = {
-      {0, 1},
-      {1, 0}
+        {0, 1},
+        {1, 0}
     };
     new TspDynamicProgrammingRecursive(dist);
   }
@@ -59,8 +60,8 @@ public class TravelingSalesmanProblemTest {
   @Test(expected = IllegalStateException.class)
   public void testTspIterativeSmallGraph() {
     double[][] dist = {
-      {0, 1},
-      {1, 0}
+        {0, 1},
+        {1, 0}
     };
     new TspDynamicProgrammingIterative(dist);
   }

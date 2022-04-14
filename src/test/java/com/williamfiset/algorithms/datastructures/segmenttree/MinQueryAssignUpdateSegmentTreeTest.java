@@ -4,18 +4,19 @@
  */
 package com.williamfiset.algorithms.datastructures.segmenttree;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.TestUtils;
 import org.junit.Before;
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class MinQueryAssignUpdateSegmentTreeTest {
 
   static int ITERATIONS = 500;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testRandomRangeAssignUpdates1WithMinRangeQueries1() {

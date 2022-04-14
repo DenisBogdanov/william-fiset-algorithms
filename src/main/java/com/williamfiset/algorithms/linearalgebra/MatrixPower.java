@@ -79,8 +79,8 @@ public class MatrixPower {
     System.out.println(matrixPower(matrix, 6)[0][0]); // 64
 
     long[][] matrix2 = {
-      {1, 2},
-      {3, 4}
+        {1, 2},
+        {3, 4}
     };
 
     long[][] result = matrixPower(matrix2, 5);
@@ -96,12 +96,12 @@ public class MatrixPower {
     // [32472480112240569, 47326272771657982]
 
     long[][] identity = {
-      {1, 0, 0, 0, 0, 0},
-      {0, 1, 0, 0, 0, 0},
-      {0, 0, 1, 0, 0, 0},
-      {0, 0, 0, 1, 0, 0},
-      {0, 0, 0, 0, 1, 0},
-      {0, 0, 0, 0, 0, 1}
+        {1, 0, 0, 0, 0, 0},
+        {0, 1, 0, 0, 0, 0},
+        {0, 0, 1, 0, 0, 0},
+        {0, 0, 0, 1, 0, 0},
+        {0, 0, 0, 0, 1, 0},
+        {0, 0, 0, 0, 0, 1}
     };
 
     result = matrixPower(identity, 987654321987654321L);

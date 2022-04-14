@@ -13,9 +13,6 @@
  */
 package com.williamfiset.algorithms.dp;
 
-import java.awt.geom.*;
-import java.util.*;
-
 // NOTE: This class does not support WMCM generally. It assumes a complete graph structure.
 public class WeightedMaximumCardinalityMatchingIterative implements MwpmInterface {
 
@@ -189,12 +186,12 @@ public class WeightedMaximumCardinalityMatchingIterative implements MwpmInterfac
   private static void test() {
     // mwpm is expected to be between nodes: 0 & 5, 1 & 2, 3 & 4
     double[][] costMatrix = {
-      {0, 9, 9, 9, 9, 1},
-      {9, 0, 1, 9, 9, 9},
-      {9, 1, 0, 9, 9, 9},
-      {9, 9, 9, 0, 1, 9},
-      {9, 9, 9, 1, 0, 9},
-      {1, 9, 9, 9, 9, 0},
+        {0, 9, 9, 9, 9, 1},
+        {9, 0, 1, 9, 9, 9},
+        {9, 1, 0, 9, 9, 9},
+        {9, 9, 9, 0, 1, 9},
+        {9, 9, 9, 1, 0, 9},
+        {1, 9, 9, 9, 9, 0},
     };
 
     WeightedMaximumCardinalityMatchingIterative mwpm =

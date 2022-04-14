@@ -6,7 +6,8 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BellmanFordAdjacencyList {
 
@@ -42,7 +43,7 @@ public class BellmanFordAdjacencyList {
    * Double.NEGATIVE_INFINITY.
    *
    * @param graph - An adjacency list containing directed edges forming the graph
-   * @param V - The number of vertices in the graph.
+   * @param V     - The number of vertices in the graph.
    * @param start - The id of the starting node
    */
   public static double[] bellmanFord(List<Edge>[] graph, int V, int start) {

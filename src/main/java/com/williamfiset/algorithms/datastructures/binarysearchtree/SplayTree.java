@@ -5,6 +5,7 @@
 package com.williamfiset.algorithms.datastructures.binarysearchtree;
 
 import com.williamfiset.algorithms.datastructures.utils.TreePrinter;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -83,7 +84,9 @@ public class SplayTree<T extends Comparable<T>> {
     }
   }
 
-  /** Public Methods * */
+  /**
+   * Public Methods *
+   */
   public SplayTree() {
     this.root = null;
   }
@@ -96,7 +99,9 @@ public class SplayTree<T extends Comparable<T>> {
     return root;
   }
 
-  /** Searches a node and splays it on top,returns the new root * */
+  /**
+   * Searches a node and splays it on top,returns the new root *
+   */
   public BinaryTree<T> search(T node) {
     if (root == null) return null;
 
@@ -105,7 +110,9 @@ public class SplayTree<T extends Comparable<T>> {
     return this.root.getData().compareTo(node) == 0 ? this.root : null;
   }
 
-  /** Inserts a node into the tree and splays it on top, returns the new root* */
+  /**
+   * Inserts a node into the tree and splays it on top, returns the new root*
+   */
   public BinaryTree<T> insert(T node) {
     if (root == null) {
       root = new BinaryTree<>(node);
@@ -125,7 +132,9 @@ public class SplayTree<T extends Comparable<T>> {
     return root;
   }
 
-  /** Deletes a node,returns the new root * */
+  /**
+   * Deletes a node,returns the new root *
+   */
   public BinaryTree<T> delete(T node) {
     if (root == null) return null;
 
@@ -145,28 +154,36 @@ public class SplayTree<T extends Comparable<T>> {
     return root;
   }
 
-  /** To FindMax Of Entire Tree * */
+  /**
+   * To FindMax Of Entire Tree *
+   */
   public T findMax() {
     BinaryTree<T> temp = root;
     while (temp.getRight() != null) temp = temp.getRight();
     return temp.getData();
   }
 
-  /** To FindMin Of Entire Tree * */
+  /**
+   * To FindMin Of Entire Tree *
+   */
   public T findMin() {
     BinaryTree<T> temp = root;
     while (temp.getLeft() != null) temp = temp.getLeft();
     return temp.getData();
   }
 
-  /** * To FindMax Of Tree with specified root * */
+  /**
+   * To FindMax Of Tree with specified root *
+   */
   public T findMax(BinaryTree<T> root) {
     BinaryTree<T> temp = root;
     while (temp.getRight() != null) temp = temp.getRight();
     return temp.getData();
   }
 
-  /** * To FindMin Of Tree with specified root * */
+  /**
+   * To FindMin Of Tree with specified root *
+   */
   public T findMin(BinaryTree<T> root) {
     BinaryTree<T> temp = root;
     while (temp.getLeft() != null) temp = temp.getLeft();
@@ -180,7 +197,9 @@ public class SplayTree<T extends Comparable<T>> {
     return (root != null) ? root.toString() : null;
   }
 
-  /** Private Methods * */
+  /**
+   * Private Methods *
+   */
   private BinaryTree<T> rightRotate(BinaryTree<T> node) {
     BinaryTree<T> p = node.getLeft();
     node.setLeft(p.getRight());

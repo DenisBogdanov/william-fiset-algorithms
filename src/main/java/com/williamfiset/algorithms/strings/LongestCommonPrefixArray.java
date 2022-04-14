@@ -9,7 +9,7 @@
  */
 package com.williamfiset.algorithms.strings;
 
-import java.util.*;
+import java.util.Arrays;
 
 // Example usage
 public class LongestCommonPrefixArray {

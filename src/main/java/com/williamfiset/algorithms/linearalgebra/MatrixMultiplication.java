@@ -24,16 +24,16 @@ class MatrixMultiplication {
   public static void main(String[] args) {
 
     double[][] a = {
-      {1, 2, 3, 4},
-      {4, 3, 2, 1},
-      {1, 2, 2, 1}
+        {1, 2, 3, 4},
+        {4, 3, 2, 1},
+        {1, 2, 2, 1}
     };
 
     double[][] b = {
-      {1, 0},
-      {2, 1},
-      {0, 3},
-      {0, 0}
+        {1, 0},
+        {2, 1},
+        {0, 3},
+        {0, 0}
     };
 
     double[][] c = multiply(a, b);

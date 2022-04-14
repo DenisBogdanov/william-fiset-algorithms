@@ -30,8 +30,8 @@ public class LongestCommonSubsequence {
         // If ends match the LCS(a1a2..an-1an, b1b2..bn-1bn) = LCS(a1a2..an-1, b1b2..bn-1) + 1
         if (A[i - 1] == B[j - 1]) dp[i][j] = dp[i - 1][j - 1] + 1;
 
-        // If the ends do not match the LCS of a1a2..an-1an and b1b2..bn-1bn is
-        // max( LCS(a1a2..an-1, b1b2..bn-1bn), LCS(a1a2..an-1an, b1b2..bn-1) )
+          // If the ends do not match the LCS of a1a2..an-1an and b1b2..bn-1bn is
+          // max( LCS(a1a2..an-1, b1b2..bn-1bn), LCS(a1a2..an-1an, b1b2..bn-1) )
         else dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
       }
     }
@@ -68,8 +68,8 @@ public class LongestCommonSubsequence {
     char[] B = {'Z', 'A', 'Y', 'W', 'B', 'C'};
     System.out.println(lcs(A, B)); // ABC
 
-    A = new char[] {'3', '9', '8', '3', '9', '7', '9', '7', '0'};
-    B = new char[] {'3', '3', '9', '9', '9', '1', '7', '2', '0', '6'};
+    A = new char[]{'3', '9', '8', '3', '9', '7', '9', '7', '0'};
+    B = new char[]{'3', '3', '9', '9', '9', '1', '7', '2', '0', '6'};
     System.out.println(lcs(A, B)); // 339970
   }
 }

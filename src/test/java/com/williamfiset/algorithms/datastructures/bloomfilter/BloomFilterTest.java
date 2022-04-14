@@ -1,13 +1,14 @@
 package com.williamfiset.algorithms.datastructures.bloomfilter;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.security.SecureRandom;
 import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
-import org.junit.Before;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class BloomFilterTest {
 
@@ -21,7 +22,8 @@ public class BloomFilterTest {
   static final int LOOPS = 1000;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testStringSetAllSubsets() {

@@ -9,7 +9,7 @@ public class FastFourierTransformComplexNumbers {
 
   public static Complex[] fft(Complex[] x) {
     int n = x.length;
-    if (n == 1) return new Complex[] {x[0]};
+    if (n == 1) return new Complex[]{x[0]};
     Complex[] arr = new Complex[n / 2];
     for (int k = 0; k < n / 2; k++) arr[k] = x[2 * k];
     Complex[] q = fft(arr);

@@ -8,9 +8,13 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import static java.lang.Math.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Random;
 
-import java.util.*;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class EagerPrimsAdjacencyList {
 

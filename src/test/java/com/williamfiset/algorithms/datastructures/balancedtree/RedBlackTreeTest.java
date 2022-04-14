@@ -1,10 +1,14 @@
 package com.williamfiset.algorithms.datastructures.balancedtree;
 
-import static com.google.common.truth.Truth.assertThat;
-
-import java.util.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.TreeSet;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class RedBlackTreeTest {
 

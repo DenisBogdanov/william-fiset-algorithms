@@ -7,7 +7,8 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ConnectedComponentsDfsSolverAdjacencyList {
 
@@ -19,7 +20,9 @@ public class ConnectedComponentsDfsSolverAdjacencyList {
   private boolean[] visited;
   private List<List<Integer>> graph;
 
-  /** @param graph - An undirected graph as an adjacency list. */
+  /**
+   * @param graph - An undirected graph as an adjacency list.
+   */
   public ConnectedComponentsDfsSolverAdjacencyList(List<List<Integer>> graph) {
     if (graph == null) throw new NullPointerException();
     this.n = graph.size();

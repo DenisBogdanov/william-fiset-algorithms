@@ -9,9 +9,14 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
-
 import java.awt.geom.Point2D;
+
+import static java.lang.Math.PI;
+import static java.lang.Math.asin;
+import static java.lang.Math.atan2;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.sqrt;
 
 public class PointCircleTangent {
 
@@ -40,7 +45,7 @@ public class PointCircleTangent {
     double dist = sqrt(dx * dx + dy * dy);
 
     // Point is strictly contained within the circle
-    if (dist < radius) return new Point2D[] {};
+    if (dist < radius) return new Point2D[]{};
 
     double angle, angle1, angle2;
 
@@ -55,8 +60,8 @@ public class PointCircleTangent {
 
     // Points are sufficiently close to be considered the same point
     // (i.e the original point is on the circle circumference)
-    if (p1.distance(p2) < EPS) return new Point2D[] {pt};
-    return new Point2D[] {p1, p2};
+    if (p1.distance(p2) < EPS) return new Point2D[]{pt};
+    return new Point2D[]{p1, p2};
   }
 
   // Example usage

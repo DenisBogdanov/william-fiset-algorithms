@@ -9,9 +9,14 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
+import java.awt.geom.Point2D;
 
-import java.awt.geom.*;
+import static java.lang.Math.PI;
+import static java.lang.Math.abs;
+import static java.lang.Math.acos;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.sqrt;
 
 public class CircleCircleIntersectionArea {
 
@@ -107,7 +112,7 @@ public class CircleCircleIntersectionArea {
     if (r + dist < R) return null;
 
     // No intersection (circles are disjoint)
-    if (r + R < dist) return new Point2D[] {};
+    if (r + R < dist) return new Point2D[]{};
 
     // Let (cx, cy) be the center of the small circle
     // Let (Cx, Cy) be the center of the larger circle
@@ -127,7 +132,7 @@ public class CircleCircleIntersectionArea {
     Point2D point = new Point2D.Double(x, y);
 
     // Unique intersection point on circumference of both circles
-    if (abs(r + R - dist) < EPS || abs(R - (r + dist)) < EPS) return new Point2D[] {point};
+    if (abs(r + R - dist) < EPS || abs(R - (r + dist)) < EPS) return new Point2D[]{point};
 
     // Find the angle via cos law
     double angle = arccosSafe((r * r - dist * dist - R * R) / (-2.0 * dist * R));
@@ -136,7 +141,7 @@ public class CircleCircleIntersectionArea {
     Point2D pt1 = rotatePoint(C, point, angle);
     Point2D pt2 = rotatePoint(C, point, -angle);
 
-    return new Point2D[] {pt1, pt2};
+    return new Point2D[]{pt1, pt2};
   }
 
   // Rotate point 'pt' a certain number of radians clockwise

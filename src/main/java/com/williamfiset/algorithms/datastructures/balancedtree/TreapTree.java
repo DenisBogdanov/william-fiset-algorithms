@@ -8,7 +8,7 @@
 package com.williamfiset.algorithms.datastructures.balancedtree;
 
 import com.williamfiset.algorithms.datastructures.utils.TreePrinter;
-import java.awt.*;
+
 import java.util.Random;
 
 public class TreapTree<T extends Comparable<T>> {
@@ -57,6 +57,7 @@ public class TreapTree<T extends Comparable<T>> {
       return value.toString();
     }
   }
+
   // The root node of the Treap tree.
   public Node root;
 

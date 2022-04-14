@@ -1,9 +1,11 @@
 package com.williamfiset.algorithms.dp;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
 
-import java.util.*;
-import org.junit.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class WeightedMaximumCardinalityMatchingTest {
 
@@ -76,8 +78,8 @@ public class WeightedMaximumCardinalityMatchingTest {
   }
 
   private static MwpmInterface[] getImplementations(Double[][] costMatrix) {
-    return new MwpmInterface[] {new WeightedMaximumCardinalityMatchingRecursive(costMatrix)
-      // new WeightedMaximumCardinalityMatchingIterative(costMatrix)
+    return new MwpmInterface[]{new WeightedMaximumCardinalityMatchingRecursive(costMatrix)
+        // new WeightedMaximumCardinalityMatchingIterative(costMatrix)
     };
   }
 
@@ -122,8 +124,8 @@ public class WeightedMaximumCardinalityMatchingTest {
   public void testSmallestMatrix1() {
     // nodes 0 & 1 make the mwpm
     Double[][] costMatrix = {
-      {0.0, 1.0},
-      {1.0, 0.0},
+        {0.0, 1.0},
+        {1.0, 0.0},
     };
     MwpmInterface[] impls = getImplementations(costMatrix);
     for (MwpmInterface mwpm : impls) {
@@ -140,10 +142,10 @@ public class WeightedMaximumCardinalityMatchingTest {
   public void testSmallMatrix1() {
     // nodes 0 & 2 and 1 & 3 make the mwpm
     Double[][] costMatrix = {
-      {0.0, 2.0, 1.0, 2.0},
-      {2.0, 0.0, 2.0, 1.0},
-      {1.0, 2.0, 0.0, 2.0},
-      {2.0, 1.0, 2.0, 0.0},
+        {0.0, 2.0, 1.0, 2.0},
+        {2.0, 0.0, 2.0, 1.0},
+        {1.0, 2.0, 0.0, 2.0},
+        {2.0, 1.0, 2.0, 0.0},
     };
 
     MwpmInterface[] impls = getImplementations(costMatrix);
@@ -161,10 +163,10 @@ public class WeightedMaximumCardinalityMatchingTest {
   public void testSmallMatrix2() {
     // nodes 0 & 1 and 2 & 3 make the mwpm
     Double[][] costMatrix = {
-      {0.0, 1.0, 2.0, 2.0},
-      {1.0, 0.0, 2.0, 2.0},
-      {2.0, 2.0, 0.0, 1.0},
-      {2.0, 2.0, 1.0, 0.0},
+        {0.0, 1.0, 2.0, 2.0},
+        {1.0, 0.0, 2.0, 2.0},
+        {2.0, 2.0, 0.0, 1.0},
+        {2.0, 2.0, 1.0, 0.0},
     };
 
     MwpmInterface[] impls = getImplementations(costMatrix);
@@ -182,12 +184,12 @@ public class WeightedMaximumCardinalityMatchingTest {
   public void testMediumMatrix1() {
     // mwpm between 0 & 5, 1 & 2, 3 & 4
     Double[][] costMatrix = {
-      {0.0, 9.0, 9.0, 9.0, 9.0, 1.0},
-      {9.0, 0.0, 1.0, 9.0, 9.0, 9.0},
-      {9.0, 1.0, 0.0, 9.0, 9.0, 9.0},
-      {9.0, 9.0, 9.0, 0.0, 1.0, 9.0},
-      {9.0, 9.0, 9.0, 1.0, 0.0, 9.0},
-      {1.0, 9.0, 9.0, 9.0, 9.0, 0.0},
+        {0.0, 9.0, 9.0, 9.0, 9.0, 1.0},
+        {9.0, 0.0, 1.0, 9.0, 9.0, 9.0},
+        {9.0, 1.0, 0.0, 9.0, 9.0, 9.0},
+        {9.0, 9.0, 9.0, 0.0, 1.0, 9.0},
+        {9.0, 9.0, 9.0, 1.0, 0.0, 9.0},
+        {1.0, 9.0, 9.0, 9.0, 9.0, 0.0},
     };
 
     MwpmInterface[] impls = getImplementations(costMatrix);
@@ -205,12 +207,12 @@ public class WeightedMaximumCardinalityMatchingTest {
   public void testMediumMatrix2() {
     // mwpm between 0 & 1, 2 & 4, 3 & 5
     Double[][] costMatrix = {
-      {0.0, 1.0, 9.0, 9.0, 9.0, 9.0},
-      {1.0, 0.0, 9.0, 9.0, 9.0, 9.0},
-      {9.0, 9.0, 0.0, 9.0, 1.0, 9.0},
-      {9.0, 9.0, 9.0, 0.0, 9.0, 1.0},
-      {9.0, 9.0, 1.0, 9.0, 0.0, 9.0},
-      {9.0, 9.0, 9.0, 1.0, 9.0, 0.0},
+        {0.0, 1.0, 9.0, 9.0, 9.0, 9.0},
+        {1.0, 0.0, 9.0, 9.0, 9.0, 9.0},
+        {9.0, 9.0, 0.0, 9.0, 1.0, 9.0},
+        {9.0, 9.0, 9.0, 0.0, 9.0, 1.0},
+        {9.0, 9.0, 1.0, 9.0, 0.0, 9.0},
+        {9.0, 9.0, 9.0, 1.0, 9.0, 0.0},
     };
 
     MwpmInterface[] impls = getImplementations(costMatrix);

@@ -10,7 +10,7 @@
  * operations is O(n)
  *
  * @author Finn Lidbetter
- *     <p>Refactored and rewritten by:
+ * <p>Refactored and rewritten by:
  * @author Daniel Gustafsson
  * @author Timmy Lindholm
  * @author Anja Studic

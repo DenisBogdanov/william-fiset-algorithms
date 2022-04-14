@@ -1,13 +1,14 @@
 package com.williamfiset.algorithms.strings;
 
-import static com.google.common.truth.Truth.assertThat;
-import static java.util.Objects.isNull;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import org.junit.Before;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
+import static java.util.Objects.isNull;
 
 public class BoyerMooreStringSearchTest {
 
@@ -31,11 +32,11 @@ public class BoyerMooreStringSearchTest {
   @Test
   public void shouldReturnOneOccurrence() {
     assertThat(
-            underTest.findOccurrences(
-                "Sample text for testing the Boyer-Moore algorithm.", "Sample"))
+        underTest.findOccurrences(
+            "Sample text for testing the Boyer-Moore algorithm.", "Sample"))
         .containsExactly(0);
     assertThat(
-            underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", "for"))
+        underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", "for"))
         .containsExactly(12);
     assertThat(underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", "."))
         .containsExactly(49);
@@ -45,7 +46,7 @@ public class BoyerMooreStringSearchTest {
   public void shouldReturnMultipleOccurrences() {
     assertThat(underTest.findOccurrences("SAAT TE", "TE")).containsExactly(5);
     assertThat(
-            underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", "te"))
+        underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", "te"))
         .containsExactly(7, 16);
     assertThat(underTest.findOccurrences("Sample text for testing the Boyer-Moore algorithm.", " "))
         .containsExactly(6, 11, 15, 23, 27, 39);
@@ -76,7 +77,7 @@ public class BoyerMooreStringSearchTest {
   }
 
   /**
-   * @param text the text being searched in
+   * @param text    the text being searched in
    * @param pattern the pattern that needs to be searched in text
    * @return a list of beginning index of text where pattern exits
    */
@@ -105,7 +106,7 @@ public class BoyerMooreStringSearchTest {
 
   /**
    * @param upperLimitAscii Largest element in the random string
-   * @param length Length of the random string
+   * @param length          Length of the random string
    * @return Returns a random string containing character between [a-z]
    */
   private String generateRandomString(int upperLimitAscii, int length) {

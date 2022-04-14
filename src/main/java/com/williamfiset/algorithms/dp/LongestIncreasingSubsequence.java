@@ -10,10 +10,10 @@ public class LongestIncreasingSubsequence {
 
   public static void main(String[] args) {
 
-    System.out.println(lis(new int[] {1, 3, 2, 4, 3})); // 3
-    System.out.println(lis(new int[] {2, 7, 4, 3, 8})); // 3
-    System.out.println(lis(new int[] {5, 4, 3, 2, 1})); // 1
-    System.out.println(lis(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9})); // 9
+    System.out.println(lis(new int[]{1, 3, 2, 4, 3})); // 3
+    System.out.println(lis(new int[]{2, 7, 4, 3, 8})); // 3
+    System.out.println(lis(new int[]{5, 4, 3, 2, 1})); // 1
+    System.out.println(lis(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9})); // 9
   }
 
   // Finds the length of the longest increasing subsequence length, O(n^2)

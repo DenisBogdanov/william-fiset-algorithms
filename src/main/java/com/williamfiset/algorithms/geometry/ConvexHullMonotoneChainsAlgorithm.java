@@ -17,10 +17,11 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.abs;
+import java.awt.geom.Point2D;
+import java.util.Arrays;
+import java.util.Comparator;
 
-import java.awt.geom.*;
-import java.util.*;
+import static java.lang.Math.abs;
 
 public class ConvexHullMonotoneChainsAlgorithm {
 

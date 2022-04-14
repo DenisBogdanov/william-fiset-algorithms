@@ -63,7 +63,7 @@ public class UniqueCombinations {
     // [3, 3]
 
     r = 3;
-    set = new int[] {1, 2, 2, 2, 3, 3, 4, 4};
+    set = new int[]{1, 2, 2, 2, 3, 3, 4, 4};
     combinations(set, r);
     // Prints:
     // [1, 2, 2]

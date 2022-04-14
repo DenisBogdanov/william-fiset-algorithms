@@ -5,13 +5,15 @@
 
 package com.williamfiset.algorithms.graphtheory.treealgorithms;
 
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static com.google.common.truth.Truth.assertThat;
 import static com.williamfiset.algorithms.graphtheory.treealgorithms.TreeCenter.addUndirectedEdge;
 import static com.williamfiset.algorithms.graphtheory.treealgorithms.TreeCenter.createEmptyTree;
 import static com.williamfiset.algorithms.graphtheory.treealgorithms.TreeCenter.findTreeCenters;
-
-import java.util.*;
-import org.junit.*;
 
 public class TreeCenterTest {
 

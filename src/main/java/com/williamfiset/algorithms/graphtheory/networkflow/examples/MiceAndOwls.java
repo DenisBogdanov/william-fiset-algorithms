@@ -11,10 +11,11 @@
  */
 package com.williamfiset.algorithms.graphtheory.networkflow.examples;
 
-import static java.lang.Math.min;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.List;
 
-import java.awt.geom.*;
-import java.util.*;
+import static java.lang.Math.min;
 
 public class MiceAndOwls {
 
@@ -38,12 +39,12 @@ public class MiceAndOwls {
 
   public static void main(String[] args) {
     Mouse[] mice = {
-      new Mouse(1, 0),
-      new Mouse(0, 1),
-      new Mouse(8, 1),
-      new Mouse(12, 0),
-      new Mouse(12, 4),
-      new Mouse(15, 5)
+        new Mouse(1, 0),
+        new Mouse(0, 1),
+        new Mouse(8, 1),
+        new Mouse(12, 0),
+        new Mouse(12, 4),
+        new Mouse(15, 5)
     };
     Hole[] holes = {new Hole(1, 1, 1), new Hole(10, 2, 2), new Hole(14, 5, 1)};
     solve(mice, holes, /* radius= */ 3);
@@ -173,8 +174,8 @@ public class MiceAndOwls {
     /**
      * Adds a directed edge (and its residual edge) to the flow graph.
      *
-     * @param from - The index of the node the directed edge starts at.
-     * @param to - The index of the node the directed edge ends at.
+     * @param from     - The index of the node the directed edge starts at.
+     * @param to       - The index of the node the directed edge ends at.
      * @param capacity - The capacity of the edge
      */
     public void addEdge(int from, int to, long capacity) {

@@ -40,7 +40,7 @@ public class BreadthFirstSearchAdjacencyListIterative {
    * then this method returns the shortest path from 'start' to 'end'
    *
    * @return An array of nodes indexes of the shortest path from 'start' to 'end'. If 'start' and
-   *     'end' are not connected then an empty array is returned.
+   * 'end' are not connected then an empty array is returned.
    */
   public List<Integer> reconstructPath(int start, int end) {
     bfs(start);

@@ -8,9 +8,10 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
-
 import java.awt.geom.Point2D;
+
+import static java.lang.Math.abs;
+import static java.lang.Math.sqrt;
 
 public class LineCircleIntersection {
 
@@ -42,16 +43,16 @@ public class LineCircleIntersection {
       double vx = c / a;
 
       // No intersection
-      if (abs(x - vx) > r) return new Point2D[] {};
+      if (abs(x - vx) > r) return new Point2D[]{};
 
       // Vertical line is tangent to circle
       if (abs((vx - r) - x) < EPS || abs((vx + r) - x) < EPS)
-        return new Point2D[] {new Point2D.Double(vx, y)};
+        return new Point2D[]{new Point2D.Double(vx, y)};
 
       double dx = abs(vx - x);
       double dy = sqrt(r * r - dx * dx);
 
-      return new Point2D[] {new Point2D.Double(vx, y + dy), new Point2D.Double(vx, y - dy)};
+      return new Point2D[]{new Point2D.Double(vx, y + dy), new Point2D.Double(vx, y - dy)};
 
       // Line is tangent to circle
     } else if (abs(D) < EPS) {
@@ -59,11 +60,11 @@ public class LineCircleIntersection {
       x1 = -B / (2 * A);
       y1 = (c - a * x1) / b;
 
-      return new Point2D[] {new Point2D.Double(x1, y1)};
+      return new Point2D[]{new Point2D.Double(x1, y1)};
 
       // No intersection point
     } else if (D < 0) {
-      return new Point2D[] {};
+      return new Point2D[]{};
 
       // Two unique intersection points
     } else {
@@ -76,7 +77,7 @@ public class LineCircleIntersection {
       x2 = (-B - D) / (2 * A);
       y2 = (c - a * x2) / b;
 
-      return new Point2D[] {new Point2D.Double(x1, y1), new Point2D.Double(x2, y2)};
+      return new Point2D[]{new Point2D.Double(x1, y1), new Point2D.Double(x2, y2)};
     }
   }
 

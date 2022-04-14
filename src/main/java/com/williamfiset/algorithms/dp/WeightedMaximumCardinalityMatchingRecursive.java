@@ -13,9 +13,6 @@
  */
 package com.williamfiset.algorithms.dp;
 
-import java.awt.geom.*;
-import java.util.*;
-
 public class WeightedMaximumCardinalityMatchingRecursive implements MwpmInterface {
 
   // A `MatchingCost` object captures the cost of a matching. Because we allow matching nodes which
@@ -27,7 +24,8 @@ public class WeightedMaximumCardinalityMatchingRecursive implements MwpmInterfac
     double cost = 0;
     int impossibleEdgeMatches = 0;
 
-    public MatchingCost() {}
+    public MatchingCost() {
+    }
 
     public MatchingCost(double cost, int iem) {
       this.cost = cost;
@@ -271,12 +269,12 @@ public class WeightedMaximumCardinalityMatchingRecursive implements MwpmInterfac
   private static void test() {
     // mwpm is expected to be between nodes: 0 & 5, 1 & 2, 3 & 4
     Double[][] costMatrix = {
-      {0.0, 9.0, 9.0, 9.0, 9.0, 1.0},
-      {9.0, 0.0, 1.0, 9.0, 9.0, 9.0},
-      {9.0, 1.0, 0.0, 9.0, 9.0, 9.0},
-      {9.0, 9.0, 9.0, 0.0, 1.0, 9.0},
-      {9.0, 9.0, 9.0, 1.0, 0.0, 9.0},
-      {1.0, 9.0, 9.0, 9.0, 9.0, 0.0},
+        {0.0, 9.0, 9.0, 9.0, 9.0, 1.0},
+        {9.0, 0.0, 1.0, 9.0, 9.0, 9.0},
+        {9.0, 1.0, 0.0, 9.0, 9.0, 9.0},
+        {9.0, 9.0, 9.0, 0.0, 1.0, 9.0},
+        {9.0, 9.0, 9.0, 1.0, 0.0, 9.0},
+        {1.0, 9.0, 9.0, 9.0, 9.0, 0.0},
     };
 
     WeightedMaximumCardinalityMatchingRecursive mwpm =

@@ -33,7 +33,7 @@ public class GeneralKDTree<T extends Comparable<T>> {
     // Create the new node and make it the root if the root is null
     KDNode<T> newNode = new KDNode<T>(toAdd);
     if (root == null) root = newNode;
-    // Otherwise, insert the node recursively
+      // Otherwise, insert the node recursively
     else insertRecursive(newNode, root, 0);
   }
 
@@ -161,7 +161,7 @@ public class GeneralKDTree<T extends Comparable<T>> {
     T[] replacedPoint = curr.point;
     // Set the node to null if it has no children
     if (curr.left == null && curr.right == null) return null;
-    // If a right child exists, find a minimum to replace the root point
+      // If a right child exists, find a minimum to replace the root point
     else if (curr.right != null) {
       curr.point = findMinRecursive(axis, curr.right, (axis + 1) % k);
       deleteRecursiveSearch(new KDNode<T>(curr.point), curr, axis);

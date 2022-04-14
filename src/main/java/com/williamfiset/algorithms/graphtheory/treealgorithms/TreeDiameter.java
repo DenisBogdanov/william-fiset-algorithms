@@ -8,7 +8,8 @@
  */
 package com.williamfiset.algorithms.graphtheory.treealgorithms;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TreeDiameter {
 
@@ -24,7 +25,7 @@ public class TreeDiameter {
   private static int[] dfs(List<List<Integer>> graph, int at, int parent) {
 
     // Already visited this node
-    if (visited[at] == VISITED_TOKEN) return new int[] {0, parent};
+    if (visited[at] == VISITED_TOKEN) return new int[]{0, parent};
 
     // Visit this node
     visited[at] = VISITED_TOKEN;
@@ -43,7 +44,7 @@ public class TreeDiameter {
       }
     }
 
-    return new int[] {bestDist, index};
+    return new int[]{bestDist, index};
   }
 
   // Given an undirected tree setup as an adjacency and a

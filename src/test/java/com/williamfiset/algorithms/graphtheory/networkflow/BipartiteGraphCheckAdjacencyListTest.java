@@ -1,10 +1,12 @@
 package com.williamfiset.algorithms.graphtheory.networkflow;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import com.williamfiset.algorithms.utils.graphutils.Utils;
-import java.util.*;
-import org.junit.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class BipartiteGraphCheckAdjacencyListTest {
 
@@ -12,7 +14,8 @@ public class BipartiteGraphCheckAdjacencyListTest {
   private BipartiteGraphCheckAdjacencyList solver;
 
   @Before
-  public void setUp() {}
+  public void setUp() {
+  }
 
   @Test
   public void testSingleton() {

@@ -1,17 +1,18 @@
 package com.williamfiset.algorithms.graphtheory;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static com.google.common.truth.Truth.assertThat;
 import static com.williamfiset.algorithms.graphtheory.BreadthFirstSearchAdjacencyListIterative.Edge;
 import static com.williamfiset.algorithms.graphtheory.BreadthFirstSearchAdjacencyListIterative.addUnweightedUndirectedEdge;
 import static com.williamfiset.algorithms.graphtheory.BreadthFirstSearchAdjacencyListIterative.createEmptyGraph;
 import static java.lang.Math.max;
 import static java.lang.Math.random;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import org.junit.Before;
-import org.junit.Test;
 
 public class BreadthFirstSearchAdjacencyListIterativeTest {
 

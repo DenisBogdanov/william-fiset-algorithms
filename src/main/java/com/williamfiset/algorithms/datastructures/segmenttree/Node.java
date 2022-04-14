@@ -95,10 +95,10 @@ public class Node {
     // Node's range fits inside query range
     if (l <= minPos && maxPos <= r) return sum;
 
-    // Ranges do not overlap
+      // Ranges do not overlap
     else if (r <= minPos || l >= maxPos) return 0;
 
-    // Ranges partially overlap
+      // Ranges partially overlap
     else return (left == null ? 0 : left.sum(l, r)) + (right == null ? 0 : right.sum(l, r));
   }
 
@@ -111,10 +111,10 @@ public class Node {
     // Node's range fits inside query range
     if (l <= minPos && maxPos <= r) return min;
 
-    // Ranges do not overlap
+      // Ranges do not overlap
     else if (r <= minPos || l >= maxPos) return INF;
 
-    // Ranges partially overlap
+      // Ranges partially overlap
     else
       return Math.min(
           (left == null ? INF : left.min(l, r)), (right == null ? INF : right.min(l, r)));

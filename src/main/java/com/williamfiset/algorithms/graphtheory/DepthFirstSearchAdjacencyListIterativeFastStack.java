@@ -6,7 +6,10 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // This file contains an implementation of an integer only stack which is
 // extremely quick and lightweight. In terms of performance it can outperform

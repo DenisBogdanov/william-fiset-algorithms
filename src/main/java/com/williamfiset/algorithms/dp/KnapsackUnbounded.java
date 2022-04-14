@@ -17,10 +17,10 @@ public class KnapsackUnbounded {
 
   /**
    * @param maxWeight - The maximum weight of the knapsack
-   * @param W - The weights of the items
-   * @param V - The values of the items
+   * @param W         - The weights of the items
+   * @param V         - The values of the items
    * @return The maximum achievable profit of selecting a subset of the elements such that the
-   *     capacity of the knapsack is not exceeded
+   * capacity of the knapsack is not exceeded
    */
   public static int unboundedKnapsack(int maxWeight, int[] W, int[] V) {
 

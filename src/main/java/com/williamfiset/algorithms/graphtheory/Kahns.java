@@ -16,10 +16,12 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
+import java.util.ArrayDeque;
+import java.util.List;
+import java.util.Queue;
+
 import static com.williamfiset.algorithms.utils.graphutils.Utils.addDirectedEdge;
 import static com.williamfiset.algorithms.utils.graphutils.Utils.createEmptyAdjacencyList;
-
-import java.util.*;
 
 public class Kahns {
 

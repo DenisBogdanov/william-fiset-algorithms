@@ -8,11 +8,11 @@
  */
 package com.williamfiset.algorithms.graphtheory.networkflow;
 
-import static java.lang.Math.min;
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
+import static java.lang.Math.min;
 
 public class MinCostMaxFlowWithBellmanFord extends NetworkFlowSolverBase {
 

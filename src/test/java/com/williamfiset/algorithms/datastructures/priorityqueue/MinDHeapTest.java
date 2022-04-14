@@ -1,13 +1,14 @@
 package com.williamfiset.algorithms.datastructures.priorityqueue;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
-import org.junit.Before;
-import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class MinDHeapTest {
 
@@ -15,7 +16,8 @@ public class MinDHeapTest {
   static final int MAX_SZ = 100;
 
   @Before
-  public void setup() {}
+  public void setup() {
+  }
 
   @Test
   public void testEmpty() {
@@ -180,7 +182,7 @@ public class MinDHeapTest {
   @Test
   public void testRemovingDuplicates() {
 
-    Integer[] in = new Integer[] {2, 7, 2, 11, 7, 13, 2};
+    Integer[] in = new Integer[]{2, 7, 2, 11, 7, 13, 2};
     MinDHeap<Integer> pq = new MinDHeap<>(3, in.length + 1);
 
     for (Integer x : in) pq.add(x);

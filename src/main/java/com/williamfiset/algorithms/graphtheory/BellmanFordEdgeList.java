@@ -27,7 +27,7 @@ public class BellmanFordEdgeList {
    * Double.NEGATIVE_INFINITY.
    *
    * @param edges - An edge list containing directed edges forming the graph
-   * @param V - The number of vertices in the graph.
+   * @param V     - The number of vertices in the graph.
    * @param start - The id of the starting node
    */
   public static double[] bellmanFord(Edge[] edges, int V, int start) {

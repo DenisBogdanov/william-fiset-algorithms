@@ -10,7 +10,8 @@ public class ListStack<T> implements Iterable<T>, Stack<T> {
   private java.util.LinkedList<T> list = new java.util.LinkedList<T>();
 
   // Create an empty stack
-  public ListStack() {}
+  public ListStack() {
+  }
 
   // Create a Stack with an initial element
   public ListStack(T firstElem) {

@@ -1,9 +1,10 @@
 package com.williamfiset.algorithms.datastructures.sparsetable;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Test;
 
-import java.util.*;
-import org.junit.*;
+import java.util.Random;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class SparseTableTest {
 

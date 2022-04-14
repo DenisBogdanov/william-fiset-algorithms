@@ -1,8 +1,8 @@
 package com.williamfiset.algorithms.datastructures.kdtree;
 
-import static com.google.common.truth.Truth.assertThat;
-
 import org.junit.Test;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class GeneralKDTreeTest {
 
@@ -41,14 +41,14 @@ public class GeneralKDTreeTest {
   @Test(expected = IllegalArgumentException.class)
   public void testInsertMismatchDimensions() {
     GeneralKDTree<Integer> kdTree = new GeneralKDTree<Integer>(2);
-    kdTree.insert(new Integer[] {1, 2, 3});
+    kdTree.insert(new Integer[]{1, 2, 3});
   }
 
   /* SEARCH METHOD TESTS */
   @Test
   public void testSearch() {
     GeneralKDTree<Integer> kdTree = new GeneralKDTree<Integer>(4);
-    assertThat(kdTree.search(new Integer[] {7, 5, 4, 9})).isFalse();
+    assertThat(kdTree.search(new Integer[]{7, 5, 4, 9})).isFalse();
     Integer[] point1 = {3, 4, 3, 9};
     Integer[] point2 = {2, 1, 5, 9};
     Integer[] point3 = {5, 6, 9, 9};
@@ -61,7 +61,7 @@ public class GeneralKDTreeTest {
     assertThat(kdTree.search(point2)).isTrue();
     assertThat(kdTree.search(point3)).isTrue();
     assertThat(kdTree.search(point4)).isTrue();
-    assertThat(kdTree.search(new Integer[] {7, 5, 4, 9})).isFalse();
+    assertThat(kdTree.search(new Integer[]{7, 5, 4, 9})).isFalse();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -73,7 +73,7 @@ public class GeneralKDTreeTest {
   @Test(expected = IllegalArgumentException.class)
   public void testSearchMismatchDimensions() {
     GeneralKDTree<Integer> kdTree = new GeneralKDTree<Integer>(2);
-    kdTree.search(new Integer[] {1, 2, 3});
+    kdTree.search(new Integer[]{1, 2, 3});
   }
 
   /* FINDMIN METHOD TESTS */
@@ -84,14 +84,14 @@ public class GeneralKDTreeTest {
     Integer[] min1 = {0, 5, 4};
     Integer[] min2 = {3, 0, 7};
     Integer[] min3 = {6, 6, 0};
-    kdTree.insert(new Integer[] {3, 7, 9});
+    kdTree.insert(new Integer[]{3, 7, 9});
     kdTree.insert(min1);
     kdTree.insert(min3);
     kdTree.insert(min2);
-    kdTree.insert(new Integer[] {4, 7, 5});
-    kdTree.insert(new Integer[] {3, 4, 8});
-    kdTree.insert(new Integer[] {7, 7, 2});
-    kdTree.insert(new Integer[] {8, 9, 8});
+    kdTree.insert(new Integer[]{4, 7, 5});
+    kdTree.insert(new Integer[]{3, 4, 8});
+    kdTree.insert(new Integer[]{7, 7, 2});
+    kdTree.insert(new Integer[]{8, 9, 8});
     assertThat(kdTree.findMin(0) == min1).isTrue();
     assertThat(kdTree.findMin(1) == min2).isTrue();
     assertThat(kdTree.findMin(2) == min3).isTrue();
@@ -113,7 +113,7 @@ public class GeneralKDTreeTest {
   @Test
   public void testDeleteEmpty() {
     GeneralKDTree<Integer> kdTree = new GeneralKDTree<Integer>(2);
-    assertThat(kdTree.delete(new Integer[] {1, 2}) == null).isTrue();
+    assertThat(kdTree.delete(new Integer[]{1, 2}) == null).isTrue();
   }
 
   @Test
@@ -181,6 +181,6 @@ public class GeneralKDTreeTest {
   @Test(expected = IllegalArgumentException.class)
   public void testDeleteMismatchDimensions() {
     GeneralKDTree<Integer> kdTree = new GeneralKDTree<Integer>(2);
-    kdTree.delete(new Integer[] {1, 2, 3});
+    kdTree.delete(new Integer[]{1, 2, 3});
   }
 }

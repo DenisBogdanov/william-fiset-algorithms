@@ -12,9 +12,11 @@
  */
 package com.williamfiset.algorithms.graphtheory.networkflow;
 
-import static java.lang.Math.min;
+import java.util.ArrayDeque;
+import java.util.Arrays;
+import java.util.Deque;
 
-import java.util.*;
+import static java.lang.Math.min;
 
 public class Dinics extends NetworkFlowSolverBase {
 

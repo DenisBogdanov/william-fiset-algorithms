@@ -72,9 +72,9 @@ public class SumQueryMultiplicationUpdateSegmentTree {
   /**
    * Builds a segment tree by starting with the leaf nodes and combining segment values on callback.
    *
-   * @param i the index of the segment in the segment tree
-   * @param tl the left index (inclusive) of the segment range
-   * @param tr the right index (inclusive) of the segment range
+   * @param i      the index of the segment in the segment tree
+   * @param tl     the left index (inclusive) of the segment range
+   * @param tr     the right index (inclusive) of the segment range
    * @param values the initial values array
    */
   private void buildSegmentTree(int i, int tl, int tr, long[] values) {
@@ -102,11 +102,11 @@ public class SumQueryMultiplicationUpdateSegmentTree {
   /**
    * Returns the range query value of the range [l, r]
    *
-   * @param i the index of the current segment in the tree
+   * @param i  the index of the current segment in the tree
    * @param tl the left endpoint (inclusive) of the current segment
    * @param tr the right endpoint (inclusive) of the current segment
-   * @param l the target left endpoint (inclusive) for the range query
-   * @param r the target right endpoint (inclusive) for the range query
+   * @param l  the target left endpoint (inclusive) for the range query
+   * @param r  the target right endpoint (inclusive) for the range query
    */
   private Long rangeQuery1(int i, int tl, int tr, int l, int r) {
     if (l > r) {

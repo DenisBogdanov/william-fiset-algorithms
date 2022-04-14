@@ -13,8 +13,10 @@
  */
 package com.williamfiset.algorithms.dp;
 
-import java.awt.geom.*;
-import java.util.*;
+import java.awt.geom.Point2D;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class MinimumWeightPerfectMatching {
 
@@ -278,10 +280,10 @@ public class MinimumWeightPerfectMatching {
 
   private static void test2() {
     double[][] costMatrix = {
-      {0, 2, 1, 2},
-      {2, 0, 2, 1},
-      {1, 2, 0, 2},
-      {2, 1, 2, 0},
+        {0, 2, 1, 2},
+        {2, 0, 2, 1},
+        {1, 2, 0, 2},
+        {2, 1, 2, 0},
     };
 
     MinimumWeightPerfectMatching mwpm = new MinimumWeightPerfectMatching(costMatrix);

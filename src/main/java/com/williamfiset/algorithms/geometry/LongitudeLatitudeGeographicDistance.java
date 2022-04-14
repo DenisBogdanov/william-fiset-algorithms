@@ -7,7 +7,11 @@
  */
 package com.williamfiset.algorithms.geometry;
 
-import static java.lang.Math.*;
+import static java.lang.Math.atan2;
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.sqrt;
+import static java.lang.Math.toRadians;
 
 public class LongitudeLatitudeGeographicDistance {
 

@@ -1,9 +1,18 @@
 package com.williamfiset.algorithms.datastructures.hashtable;
 
-import static com.google.common.truth.Truth.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.*;
-import org.junit.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import static com.google.common.truth.Truth.assertThat;
 
 public class HashTableQuadraticProbingTest {
 

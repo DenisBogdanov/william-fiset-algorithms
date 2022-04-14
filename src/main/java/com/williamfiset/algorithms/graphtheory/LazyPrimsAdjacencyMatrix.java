@@ -9,7 +9,7 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import java.util.*;
+import java.util.PriorityQueue;
 
 public class LazyPrimsAdjacencyMatrix {
 

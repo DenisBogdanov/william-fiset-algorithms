@@ -7,14 +7,14 @@
  */
 package com.williamfiset.algorithms.graphtheory;
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class DijkstrasShortestPathAdjacencyListWithDHeap {
 
@@ -58,7 +58,7 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
    * Adds a directed edge to the graph.
    *
    * @param from - The index of the node the directed edge starts at.
-   * @param to - The index of the node the directed edge end at.
+   * @param to   - The index of the node the directed edge end at.
    * @param cost - The cost of the edge.
    */
   public void addEdge(int from, int to, int cost) {
@@ -135,7 +135,7 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
    * Reconstructs the shortest path (of nodes) from 'start' to 'end' inclusive.
    *
    * @return An array of node indexes of the shortest path from 'start' to 'end'. If 'start' and
-   *     'end' are not connected then an empty array is returned.
+   * 'end' are not connected then an empty array is returned.
    */
   public List<Integer> reconstructPath(int start, int end) {
     if (end < 0 || end >= n) throw new IllegalArgumentException("Invalid node index");

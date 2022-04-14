@@ -7,7 +7,8 @@
  */
 package com.williamfiset.algorithms.strings;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.TreeSet;
 
 public class LongestRepeatedSubstring {
 

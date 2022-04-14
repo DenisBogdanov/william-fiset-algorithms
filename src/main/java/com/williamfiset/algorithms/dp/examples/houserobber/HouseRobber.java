@@ -16,7 +16,8 @@
  */
 package com.williamfiset.algorithms.dp.examples;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HouseRobber {
 

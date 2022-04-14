@@ -9,7 +9,8 @@ public class LinkedQueue<T> implements Iterable<T>, Queue<T> {
 
   private java.util.LinkedList<T> list = new java.util.LinkedList<T>();
 
-  public LinkedQueue() {}
+  public LinkedQueue() {
+  }
 
   public LinkedQueue(T firstElem) {
     offer(firstElem);
