@@ -137,9 +137,7 @@ public class DijkstrasShortestPathAdjacencyList {
       if (dist[node.id] < node.value) continue;
 
       List<Edge> edges = graph.get(node.id);
-      for (int i = 0; i < edges.size(); i++) {
-        Edge edge = edges.get(i);
-
+      for (Edge edge : edges) {
         // You cannot get a shorter path by revisiting
         // a node you have already visited before.
         if (visited[edge.to]) continue;

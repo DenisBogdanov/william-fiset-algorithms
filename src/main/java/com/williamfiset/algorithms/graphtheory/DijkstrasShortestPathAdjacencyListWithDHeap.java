@@ -18,8 +18,6 @@ import static java.lang.Math.min;
 
 public class DijkstrasShortestPathAdjacencyListWithDHeap {
 
-  // An edge class to represent a directed edge
-  // between two nodes with a certain cost.
   public static class Edge {
     int to;
     double cost;
@@ -30,46 +28,29 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
     }
   }
 
-  private final int n;
+  private final int numberOfNodes;
 
   private int edgeCount;
-  private double[] dist;
   private Integer[] prev;
   private List<List<Edge>> graph;
 
-  /**
-   * Initialize the solver by providing the graph size and a starting node. Use the {@link #addEdge}
-   * method to actually add edges to the graph.
-   *
-   * @param n - The number of nodes in the graph.
-   */
-  public DijkstrasShortestPathAdjacencyListWithDHeap(int n) {
-    this.n = n;
+  public DijkstrasShortestPathAdjacencyListWithDHeap(int numberOfNodes) {
+    this.numberOfNodes = numberOfNodes;
     createEmptyGraph();
   }
 
-  // Construct an empty graph with n nodes including the source and sink nodes.
   private void createEmptyGraph() {
-    graph = new ArrayList<>(n);
-    for (int i = 0; i < n; i++) graph.add(new ArrayList<>());
+    graph = new ArrayList<>(numberOfNodes);
+    for (int i = 0; i < numberOfNodes; i++) {
+      graph.add(new ArrayList<>());
+    }
   }
 
-  /**
-   * Adds a directed edge to the graph.
-   *
-   * @param from - The index of the node the directed edge starts at.
-   * @param to   - The index of the node the directed edge end at.
-   * @param cost - The cost of the edge.
-   */
   public void addEdge(int from, int to, int cost) {
     edgeCount++;
     graph.get(from).add(new Edge(to, cost));
   }
 
-  /**
-   * Use {@link #addEdge} method to add edges to the graph and use this method to retrieve the
-   * constructed graph.
-   */
   public List<List<Edge>> getGraph() {
     return graph;
   }
@@ -79,20 +60,16 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
   // starting node and the destination node the returned value is set to be
   // Double.POSITIVE_INFINITY.
   public double dijkstra(int start, int end) {
-
-    // Keep an Indexed Priority Queue (ipq) of the next most promising node
-    // to visit.
-    int degree = edgeCount / n;
-    MinIndexedDHeap<Double> ipq = new MinIndexedDHeap<>(degree, n);
+    int degree = edgeCount / numberOfNodes;
+    MinIndexedDHeap<Double> ipq = new MinIndexedDHeap<>(degree, numberOfNodes);
     ipq.insert(start, 0.0);
 
-    // Maintain an array of the minimum distance to each node.
-    dist = new double[n];
+    double[] dist = new double[numberOfNodes];
     Arrays.fill(dist, Double.POSITIVE_INFINITY);
     dist[start] = 0.0;
 
-    boolean[] visited = new boolean[n];
-    prev = new Integer[n];
+    boolean[] visited = new boolean[numberOfNodes];
+    prev = new Integer[numberOfNodes];
 
     while (!ipq.isEmpty()) {
       int nodeId = ipq.peekMinKeyIndex();
@@ -100,23 +77,17 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
       visited[nodeId] = true;
       double minValue = ipq.pollMinValue();
 
-      // We already found a better path before we got to
-      // processing this node so we can ignore it.
+      // We already found a better path before
       if (minValue > dist[nodeId]) continue;
 
       for (Edge edge : graph.get(nodeId)) {
-
-        // We cannot get a shorter path by revisiting
-        // a node we have already visited before.
         if (visited[edge.to]) continue;
 
-        // Relax edge by updating minimum cost if applicable.
         double newDist = dist[nodeId] + edge.cost;
         if (newDist < dist[edge.to]) {
           prev[edge.to] = nodeId;
           dist[edge.to] = newDist;
-          // Insert the cost of going to a node for the first time in the PQ,
-          // or try and update it to a better value by calling decrease.
+
           if (!ipq.contains(edge.to)) ipq.insert(edge.to, newDist);
           else ipq.decrease(edge.to, newDist);
         }
@@ -127,19 +98,13 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
       // greedy and there are no negative edge weights.
       if (nodeId == end) return dist[end];
     }
-    // End node is unreachable.
+
     return Double.POSITIVE_INFINITY;
   }
 
-  /**
-   * Reconstructs the shortest path (of nodes) from 'start' to 'end' inclusive.
-   *
-   * @return An array of node indexes of the shortest path from 'start' to 'end'. If 'start' and
-   * 'end' are not connected then an empty array is returned.
-   */
   public List<Integer> reconstructPath(int start, int end) {
-    if (end < 0 || end >= n) throw new IllegalArgumentException("Invalid node index");
-    if (start < 0 || start >= n) throw new IllegalArgumentException("Invalid node index");
+    if (end < 0 || end >= numberOfNodes) throw new IllegalArgumentException("Invalid node index");
+    if (start < 0 || start >= numberOfNodes) throw new IllegalArgumentException("Invalid node index");
     List<Integer> path = new ArrayList<>();
     double dist = dijkstra(start, end);
     if (dist == Double.POSITIVE_INFINITY) return path;
@@ -209,7 +174,7 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
     }
 
     public int peekMinKeyIndex() {
-      isNotEmptyOrThrow();
+      if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
       return im[0];
     }
 
@@ -221,7 +186,7 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
 
     @SuppressWarnings("unchecked")
     public T peekMinValue() {
-      isNotEmptyOrThrow();
+      if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
       return (T) values[im[0]];
     }
 
@@ -233,7 +198,7 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
 
     public void insert(int ki, T value) {
       if (contains(ki)) throw new IllegalArgumentException("index already exists; received: " + ki);
-      valueNotNullOrThrow(value);
+      if (value == null) throw new IllegalArgumentException("value cannot be null");
       pm[ki] = sz;
       im[sz] = ki;
       values[ki] = value;
@@ -242,13 +207,13 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
 
     @SuppressWarnings("unchecked")
     public T valueOf(int ki) {
-      keyExistsOrThrow(ki);
+      if (!contains(ki)) throw new NoSuchElementException("Index does not exist; received: " + ki);
       return (T) values[ki];
     }
 
     @SuppressWarnings("unchecked")
     public T delete(int ki) {
-      keyExistsOrThrow(ki);
+      if (!contains(ki)) throw new NoSuchElementException("Index does not exist; received: " + ki);
       final int i = pm[ki];
       swap(i, --sz);
       sink(i);
@@ -288,8 +253,6 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
         sink(pm[ki]);
       }
     }
-
-    /* Helper functions */
 
     private void sink(int i) {
       for (int j = minChild(i); j != -1; ) {
@@ -339,22 +302,8 @@ public class DijkstrasShortestPathAdjacencyListWithDHeap {
       return lst.toString();
     }
 
-    /* Helper functions to make the code more readable. */
-
-    private void isNotEmptyOrThrow() {
-      if (isEmpty()) throw new NoSuchElementException("Priority queue underflow");
-    }
-
     private void keyExistsAndValueNotNullOrThrow(int ki, Object value) {
-      keyExistsOrThrow(ki);
-      valueNotNullOrThrow(value);
-    }
-
-    private void keyExistsOrThrow(int ki) {
       if (!contains(ki)) throw new NoSuchElementException("Index does not exist; received: " + ki);
-    }
-
-    private void valueNotNullOrThrow(Object value) {
       if (value == null) throw new IllegalArgumentException("value cannot be null");
     }
 
