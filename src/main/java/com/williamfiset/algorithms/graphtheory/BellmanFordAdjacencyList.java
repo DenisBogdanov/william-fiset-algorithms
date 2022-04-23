@@ -7,6 +7,7 @@
 package com.williamfiset.algorithms.graphtheory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class BellmanFordAdjacencyList {
@@ -42,35 +43,36 @@ public class BellmanFordAdjacencyList {
    * If a node is part of a negative cycle then the minimum cost for that node is set to
    * Double.NEGATIVE_INFINITY.
    *
-   * @param graph - An adjacency list containing directed edges forming the graph
-   * @param V     - The number of vertices in the graph.
-   * @param start - The id of the starting node
+   * @param graph    - An adjacency list containing directed edges forming the graph
+   * @param vertices - The number of vertices in the graph.
+   * @param start    - The id of the starting node
    */
-  public static double[] bellmanFord(List<Edge>[] graph, int V, int start) {
+  public static double[] bellmanFord(List<Edge>[] graph, int vertices, int start) {
+    double[] distances = new double[vertices];
+    Arrays.fill(distances, Double.POSITIVE_INFINITY);
+    distances[start] = 0;
 
-    // Initialize the distance to all nodes to be infinity
-    // except for the start node which is zero.
-    double[] dist = new double[V];
-    java.util.Arrays.fill(dist, Double.POSITIVE_INFINITY);
-    dist[start] = 0;
+    for (int i = 0; i < vertices - 1; i++) {
+      for (List<Edge> edges : graph) {
+        for (Edge edge : edges) {
+          if (distances[edge.from] + edge.cost < distances[edge.to]) {
+            distances[edge.to] = distances[edge.from] + edge.cost;
+          }
+        }
+      }
+    }
 
-    // For each vertex, apply relaxation for all the edges
-    for (int i = 0; i < V - 1; i++)
-      for (List<Edge> edges : graph)
-        for (Edge edge : edges)
-          if (dist[edge.from] + edge.cost < dist[edge.to])
-            dist[edge.to] = dist[edge.from] + edge.cost;
+    for (int i = 0; i < vertices - 1; i++) {
+      for (List<Edge> edges : graph) {
+        for (Edge edge : edges) {
+          if (distances[edge.from] + edge.cost < distances[edge.to]) {
+            distances[edge.to] = Double.NEGATIVE_INFINITY;
+          }
+        }
+      }
+    }
 
-    // Run algorithm a second time to detect which nodes are part
-    // of a negative cycle. A negative cycle has occurred if we
-    // can find a better path beyond the optimal solution.
-    for (int i = 0; i < V - 1; i++)
-      for (List<Edge> edges : graph)
-        for (Edge edge : edges)
-          if (dist[edge.from] + edge.cost < dist[edge.to]) dist[edge.to] = Double.NEGATIVE_INFINITY;
-
-    // Return the array containing the shortest distance to every node
-    return dist;
+    return distances;
   }
 
   public static void main(String[] args) {
