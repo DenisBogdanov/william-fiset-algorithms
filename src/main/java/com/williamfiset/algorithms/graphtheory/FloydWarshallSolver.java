@@ -20,13 +20,12 @@ import static java.lang.Double.NEGATIVE_INFINITY;
 import static java.lang.Double.POSITIVE_INFINITY;
 
 public class FloydWarshallSolver {
-
-  private int n;
-  private boolean solved;
-  private double[][] dp;
-  private Integer[][] next;
-
   private static final int REACHES_NEGATIVE_CYCLE = -1;
+
+  private final int vertices;
+  private boolean solved;
+  private final double[][] dp;
+  private final Integer[][] next;
 
   /**
    * As input, this class takes an adjacency matrix with edge weights between nodes, where
@@ -37,37 +36,30 @@ public class FloydWarshallSolver {
    * your graph and the problem you are trying to solve.
    */
   public FloydWarshallSolver(double[][] matrix) {
-    n = matrix.length;
-    dp = new double[n][n];
-    next = new Integer[n][n];
+    vertices = matrix.length;
+    dp = new double[vertices][vertices];
+    next = new Integer[vertices][vertices];
 
     // Copy input matrix and setup 'next' matrix for path reconstruction.
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < n; j++) {
+    for (int i = 0; i < vertices; i++) {
+      for (int j = 0; j < vertices; j++) {
         if (matrix[i][j] != POSITIVE_INFINITY) next[i][j] = j;
         dp[i][j] = matrix[i][j];
       }
     }
   }
 
-  /**
-   * Runs Floyd-Warshall to compute the shortest distance between every pair of nodes.
-   *
-   * @return The solved All Pairs Shortest Path (APSP) matrix.
-   */
   public double[][] getApspMatrix() {
     solve();
     return dp;
   }
 
-  // Executes the Floyd-Warshall algorithm.
   public void solve() {
     if (solved) return;
 
-    // Compute all pairs shortest paths.
-    for (int k = 0; k < n; k++) {
-      for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n; j++) {
+    for (int k = 0; k < vertices; k++) {
+      for (int i = 0; i < vertices; i++) {
+        for (int j = 0; j < vertices; j++) {
           if (dp[i][k] + dp[k][j] < dp[i][j]) {
             dp[i][j] = dp[i][k] + dp[k][j];
             next[i][j] = next[i][k];
@@ -76,15 +68,17 @@ public class FloydWarshallSolver {
       }
     }
 
-    // Identify negative cycles by propagating the value 'NEGATIVE_INFINITY'
-    // to every edge that is part of or reaches into a negative cycle.
-    for (int k = 0; k < n; k++)
-      for (int i = 0; i < n; i++)
-        for (int j = 0; j < n; j++)
+    // identify negative cycles
+    for (int k = 0; k < vertices; k++) {
+      for (int i = 0; i < vertices; i++) {
+        for (int j = 0; j < vertices; j++) {
           if (dp[i][k] != POSITIVE_INFINITY && dp[k][j] != POSITIVE_INFINITY && dp[k][k] < 0) {
             dp[i][j] = NEGATIVE_INFINITY;
             next[i][j] = REACHES_NEGATIVE_CYCLE;
           }
+        }
+      }
+    }
 
     solved = true;
   }
