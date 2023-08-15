@@ -25,14 +25,14 @@ import static com.williamfiset.algorithms.utils.graphutils.Utils.createEmptyAdja
 
 public class Kahns {
 
-  // Given a an acyclic graph `g` represented as a adjacency list, return a
+  // Given a an acyclic graph `adjList` represented as a adjacency list, return a
   // topological ordering on the nodes of the graph.
-  public int[] kahns(List<List<Integer>> g) {
-    int n = g.size();
+  public int[] kahns(List<List<Integer>> adjList) {
+    int n = adjList.size();
 
     // Calculate the in-degree of each node.
     int[] inDegree = new int[n];
-    for (List<Integer> edges : g) {
+    for (List<Integer> edges : adjList) {
       for (int to : edges) {
         inDegree[to]++;
       }
@@ -53,7 +53,7 @@ public class Kahns {
     while (!q.isEmpty()) {
       int at = q.poll();
       order[index++] = at;
-      for (int to : g.get(at)) {
+      for (int to : adjList.get(at)) {
         inDegree[to]--;
         if (inDegree[to] == 0) {
           q.offer(to);

@@ -14,57 +14,45 @@ import java.util.List;
 import static java.lang.Math.min;
 
 public class BridgesAdjacencyList {
-
-  private int n, id;
-  private int[] low, ids;
-  private boolean solved;
+  private final int n;
+  private int id;
+  private int[] lowLinks;
+  private int[] ids;
   private boolean[] visited;
-  private List<List<Integer>> graph;
-  private List<Integer> bridges;
 
-  public BridgesAdjacencyList(List<List<Integer>> graph, int n) {
-    if (graph == null || n <= 0 || graph.size() != n) throw new IllegalArgumentException();
-    this.graph = graph;
-    this.n = n;
+  private final List<List<Integer>> adjList;
+
+  public BridgesAdjacencyList(List<List<Integer>> adjList) {
+    this.adjList = adjList;
+    this.n = adjList.size();
   }
 
-  // Returns a list of pairs of nodes indicating which nodes form bridges.
-  // The returned list is always of even length and indexes (2*i, 2*i+1) form a
-  // pair. For example, nodes at indexes (0, 1) are a pair, (2, 3) are another
-  // pair, etc...
   public List<Integer> findBridges() {
-    if (solved) return bridges;
-
     id = 0;
-    low = new int[n]; // Low link values
-    ids = new int[n]; // Nodes ids
+    lowLinks = new int[n];
+    ids = new int[n];
     visited = new boolean[n];
 
-    bridges = new ArrayList<>();
-
-    // Finds all bridges in the graph across various connected components.
+    List<Integer> bridges = new ArrayList<>();
     for (int i = 0; i < n; i++) if (!visited[i]) dfs(i, -1, bridges);
-
-    solved = true;
     return bridges;
   }
 
-  private void dfs(int at, int parent, List<Integer> bridges) {
+  private void dfs(int currNode, int parent, List<Integer> bridges) {
+    visited[currNode] = true;
+    lowLinks[currNode] = ids[currNode] = ++id;
 
-    visited[at] = true;
-    low[at] = ids[at] = ++id;
-
-    for (Integer to : graph.get(at)) {
-      if (to == parent) continue;
-      if (!visited[to]) {
-        dfs(to, at, bridges);
-        low[at] = min(low[at], low[to]);
-        if (ids[at] < low[to]) {
-          bridges.add(at);
-          bridges.add(to);
+    for (Integer neighbour : adjList.get(currNode)) {
+      if (neighbour == parent) continue;
+      if (!visited[neighbour]) {
+        dfs(neighbour, currNode, bridges);
+        lowLinks[currNode] = min(lowLinks[currNode], lowLinks[neighbour]);
+        if (ids[currNode] < lowLinks[neighbour]) {
+          bridges.add(currNode);
+          bridges.add(neighbour);
         }
       } else {
-        low[at] = min(low[at], ids[to]);
+        lowLinks[currNode] = min(lowLinks[currNode], ids[neighbour]);
       }
     }
   }
@@ -87,7 +75,7 @@ public class BridgesAdjacencyList {
     addEdge(graph, 7, 8);
     addEdge(graph, 8, 5);
 
-    BridgesAdjacencyList solver = new BridgesAdjacencyList(graph, n);
+    BridgesAdjacencyList solver = new BridgesAdjacencyList(graph);
     List<Integer> bridges = solver.findBridges();
 
     // Prints:

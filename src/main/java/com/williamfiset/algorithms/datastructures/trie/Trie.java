@@ -93,7 +93,6 @@ public class Trie {
       if (curNode.count <= 0) {
         node.children.remove(ch);
         curNode.children = null;
-        curNode = null;
         return true;
       }
 

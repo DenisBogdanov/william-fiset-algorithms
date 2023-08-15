@@ -14,60 +14,56 @@ import java.util.List;
 import static java.lang.Math.min;
 
 public class ArticulationPointsAdjacencyList {
+  private final int n;
+  private int id;
+  private int rootNodeOutgoingEdgeCount;
+  private int[] lowLinks;
+  private int[] ids;
+  private boolean[] visited;
+  private boolean[] isArticulationPointArr;
 
-  private int n, id, rootNodeOutcomingEdgeCount;
-  private boolean solved;
-  private int[] low, ids;
-  private boolean[] visited, isArticulationPoint;
-  private List<List<Integer>> graph;
+  private final List<List<Integer>> adjList;
 
-  public ArticulationPointsAdjacencyList(List<List<Integer>> graph, int n) {
-    if (graph == null || n <= 0 || graph.size() != n) throw new IllegalArgumentException();
-    this.graph = graph;
-    this.n = n;
+  public ArticulationPointsAdjacencyList(List<List<Integer>> adjList) {
+    this.adjList = adjList;
+    this.n = adjList.size();
   }
 
-  // Returns the indexes for all articulation points in the graph even if the
-  // graph is not fully connected.
   public boolean[] findArticulationPoints() {
-    if (solved) return isArticulationPoint;
-
     id = 0;
-    low = new int[n]; // Low link values
-    ids = new int[n]; // Nodes ids
+    lowLinks = new int[n];
+    ids = new int[n];
     visited = new boolean[n];
-    isArticulationPoint = new boolean[n];
+    isArticulationPointArr = new boolean[n];
 
     for (int i = 0; i < n; i++) {
       if (!visited[i]) {
-        rootNodeOutcomingEdgeCount = 0;
+        rootNodeOutgoingEdgeCount = 0;
         dfs(i, i, -1);
-        isArticulationPoint[i] = (rootNodeOutcomingEdgeCount > 1);
+        isArticulationPointArr[i] = (rootNodeOutgoingEdgeCount > 1);
       }
     }
 
-    solved = true;
-    return isArticulationPoint;
+    return isArticulationPointArr;
   }
 
-  private void dfs(int root, int at, int parent) {
+  private void dfs(int root, int currNode, int parent) {
+    if (parent == root) rootNodeOutgoingEdgeCount++;
 
-    if (parent == root) rootNodeOutcomingEdgeCount++;
+    visited[currNode] = true;
+    lowLinks[currNode] = ids[currNode] = id++;
 
-    visited[at] = true;
-    low[at] = ids[at] = id++;
-
-    List<Integer> edges = graph.get(at);
-    for (Integer to : edges) {
-      if (to == parent) continue;
-      if (!visited[to]) {
-        dfs(root, to, at);
-        low[at] = min(low[at], low[to]);
-        if (ids[at] <= low[to]) {
-          isArticulationPoint[at] = true;
+    List<Integer> edges = adjList.get(currNode);
+    for (Integer neighbour : edges) {
+      if (neighbour == parent) continue;
+      if (!visited[neighbour]) {
+        dfs(root, neighbour, currNode);
+        lowLinks[currNode] = min(lowLinks[currNode], lowLinks[neighbour]);
+        if (ids[currNode] <= lowLinks[neighbour]) {
+          isArticulationPointArr[currNode] = true;
         }
       } else {
-        low[at] = min(low[at], ids[to]);
+        lowLinks[currNode] = min(lowLinks[currNode], ids[neighbour]);
       }
     }
   }
@@ -108,7 +104,7 @@ public class ArticulationPointsAdjacencyList {
     addEdge(graph, 7, 8);
     addEdge(graph, 8, 5);
 
-    ArticulationPointsAdjacencyList solver = new ArticulationPointsAdjacencyList(graph, n);
+    ArticulationPointsAdjacencyList solver = new ArticulationPointsAdjacencyList(graph);
     boolean[] isArticulationPoint = solver.findArticulationPoints();
 
     // Prints:
@@ -128,7 +124,7 @@ public class ArticulationPointsAdjacencyList {
     addEdge(graph, 0, 1);
     addEdge(graph, 1, 2);
 
-    ArticulationPointsAdjacencyList solver = new ArticulationPointsAdjacencyList(graph, n);
+    ArticulationPointsAdjacencyList solver = new ArticulationPointsAdjacencyList(graph);
     boolean[] isArticulationPoint = solver.findArticulationPoints();
 
     // Prints:
